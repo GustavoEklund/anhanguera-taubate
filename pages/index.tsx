@@ -24,39 +24,40 @@ export default function Home(): JSX.Element {
                             sentida de verdade. Essa é a Faculdade Anhanguera de Taubaté, formando o melhor de você.
                         </p>
                     </div>
+                    <div className={Styles.footerTitle}>
+                        <h1>Escolha sua modalidade</h1>
+                    </div>
+                    <footer className={Styles.footer}>
+
+                        <div className={Styles.button}>
+                            <div className={[Styles.buttonIcon, Styles.buttonLeftIcon].join(' ')}>
+                                <Image
+                                    src="/assets/door_open_icon.svg"
+                                    width="48"
+                                    height="48"
+                                    alt="Presencial"
+                                />
+                            </div>
+                            <Link href="/">Presencial</Link>
+                        </div>
+                        <div className={Styles.button}>
+                            <div className={[Styles.buttonIcon, Styles.buttonRightIcon].join(' ')}>
+                                <Image
+                                    src="/assets/satellite_icon.svg"
+                                    width="48"
+                                    height="48"
+                                    alt="Presencial"
+                                />
+                            </div>
+                            <Link href="/">SEMI ou 100% WEB</Link>
+                        </div>
+                    </footer>
                 </div>
                 <div className={Styles.rightSide}>
-                    <div className={Styles.heroBackgroundShape}>
-                        <Image src="/assets/hero_background_shape.png" layout="fill" alt="Hero Shape" />
-                    </div>
-                    <div className={Styles.heroArt}>
-                        <Image src="/assets/hero_art.svg" layout="fill" alt="Hero Art"/>
+                    <div className={Styles.heroImage}>
+                        <Image src="/assets/hero_image.svg" layout="fill" alt="Hero Shape" />
                     </div>
                 </div>
-                <footer className={Styles.footer}>
-                    <div className={Styles.button}>
-                        <div className={[Styles.buttonIcon, Styles.buttonLeftIcon].join(' ')}>
-                            <Image
-                                src="/assets/door_open_icon.svg"
-                                width="64"
-                                height="64"
-                                alt="Presencial"
-                            />
-                        </div>
-                        <Link href="/">Presencial</Link>
-                    </div>
-                    <div className={Styles.button}>
-                        <div className={[Styles.buttonIcon, Styles.buttonRightIcon].join(' ')}>
-                            <Image
-                                src="/assets/satellite_icon.svg"
-                                width="64"
-                                height="64"
-                                alt="Presencial"
-                            />
-                        </div>
-                        <Link href="/">Ensino a distância</Link>
-                    </div>
-                </footer>
             </div>
         </Layout>
     )

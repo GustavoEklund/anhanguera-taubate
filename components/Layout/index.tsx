@@ -25,7 +25,7 @@ export default function Layout({ title, children }: LayoutTypes): JSX.Element {
                 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_anhanguera.png" />
 
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Yanone+Kaffeesatz:wght@300;400;700&display=swap" rel="stylesheet" />
             </Head>
             {/*<header>header</header>*/}
             <main>{children}</main>
