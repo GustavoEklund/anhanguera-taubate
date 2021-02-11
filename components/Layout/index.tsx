@@ -1,13 +1,16 @@
 import React from 'react'
 import Head from 'next/head'
 import Styles from './styles.module.scss'
+import Header from "@/components/Header";
 
 type LayoutTypes = {
     title: string
+    headerDisabled?: boolean
+    footerDisabled?: boolean
     children: React.ReactNode | React.ReactNode[]
 }
 
-export default function Layout({ title, children }: LayoutTypes): JSX.Element {
+export default function Layout({ title, headerDisabled, footerDisabled, children }: LayoutTypes): JSX.Element {
     return (
         <div className={Styles.main}>
             <Head>
@@ -27,9 +30,9 @@ export default function Layout({ title, children }: LayoutTypes): JSX.Element {
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Yanone+Kaffeesatz:wght@300;400;700&display=swap" rel="stylesheet" />
             </Head>
-            {/*<header>header</header>*/}
+            { !headerDisabled && <Header /> }
             <main>{children}</main>
-            {/*<footer>footer</footer>*/}
+            { !footerDisabled && <footer>Footer</footer> }
         </div>
     )
 }
