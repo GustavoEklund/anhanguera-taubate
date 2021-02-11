@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Styles from './styles.module.scss'
-import Layout from '../components/Layout'
+import Layout from '@/components/Layout'
 
 export default function Home(): JSX.Element {
     return (
