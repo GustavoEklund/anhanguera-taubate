@@ -5,7 +5,7 @@ import Layout from '@/components/Layout'
 
 export default function Home(): JSX.Element {
     return (
-        <Layout title="Início">
+        <Layout title="Início" headerDisabled footerDisabled>
             <div className={Styles.heroWrapper}>
                 <div className={Styles.leftSide}>
                     <div className={Styles.logo}>
@@ -19,8 +19,8 @@ export default function Home(): JSX.Element {
                     <div className={Styles.heroText}>
                         <p>
                             Desde 2006, realizamos sonhos e formamos pessoas melhores e capazes. Nossos professores não
-                            apenas passam o conhecimento, mas respiram dia a dia a educação. Nossa infraestrutura é
-                            moderna e conta com laboratórios completos, com os melhores equipamentos, onde a prática é
+                            se limitam a passar o conhecimento, mas respiram dia a dia a educação. Nossa infraestrutura
+                            é moderna e conta com laboratórios completos, com os melhores equipamentos, onde a prática é
                             sentida de verdade. Essa é a Faculdade Anhanguera de Taubaté, formando o melhor de você.
                         </p>
                     </div>
@@ -38,7 +38,7 @@ export default function Home(): JSX.Element {
                                     alt="Presencial"
                                 />
                             </div>
-                            <Link href="/">Presencial</Link>
+                            <Link href="/home">Presencial</Link>
                         </div>
                         <div className={Styles.button}>
                             <div className={[Styles.buttonIcon, Styles.buttonRightIcon].join(' ')}>
@@ -51,6 +51,15 @@ export default function Home(): JSX.Element {
                             </div>
                             <Link href="/">SEMI ou 100% WEB</Link>
                         </div>
+                        <button type="button" className={Styles.location}>
+                            <Image
+                                src="/assets/map_marker.svg"
+                                width="24"
+                                height="24"
+                                alt="Presencial"
+                            />
+                            <span>Nossa localização</span>
+                        </button>
                     </footer>
                 </div>
                 <div className={Styles.rightSide}>
