@@ -1,0 +1,45 @@
+@import "colors.module";
+
+button.changeModalityButton {
+  display: flex;
+  cursor: pointer;
+  height: 40px;
+  width: 150px;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+
+  svg {
+    margin-right: 0.5rem;
+    transition: $defaultAnimation;
+  }
+
+  p {
+    font-weight: bold;
+    transition: $defaultAnimation;
+  }
+
+  .enabled {
+    font-size: 1.2rem;
+    color: $primary;
+  }
+
+  .disabled {
+    font-size: 0.8rem;
+    color: $secondary;
+  }
+
+  &:hover {
+    svg { fill: $primary; }
+
+    .enabled {
+      font-size: 0.8rem;
+      color: $secondary;
+    }
+
+    .disabled {
+      font-size: 1.2rem;
+      color: $primary;
+    }
+  }
+}

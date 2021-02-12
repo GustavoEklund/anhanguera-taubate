@@ -5,7 +5,7 @@ import TelegramIcon from '@/components/Icons/TelegramIcon'
 import InstagramIcon from "@/components/Icons/InstagramIcon";
 import FacebookIcon from "@/components/Icons/FacebookIcon";
 import WhatsAppIcon from "@/components/Icons/WhatsAppIcon";
- import ChangeIcon from "@/components/Icons/ChangeIcon";
+import ChangeModalityButton from '@/components/ChangeModalityButton'
 
 export default function Header(): JSX.Element {
     return (
@@ -29,14 +29,14 @@ export default function Header(): JSX.Element {
                 </div>
                 <div className={Styles.socialMediaWrapper}>
                     <a
-                        href="https://api.whatsapp.com/send/?phone=551236344146"
+                        href="https://www.instagram.com/anhanguera_taubate/"
                         rel="noreferrer"
                         target="_blank"
                     >
                         <InstagramIcon />
                     </a>
                     <a
-                        href="https://api.whatsapp.com/send/?phone=551236344146"
+                        href="https://www.facebook.com/faculdadeanhangueradetaubate/"
                         rel="noreferrer"
                         target="_blank"
                     >
@@ -57,13 +57,7 @@ export default function Header(): JSX.Element {
                         <TelegramIcon />
                     </a>
                 </div>
-                <div style={{ display: 'flex' }}>
-                    <ChangeIcon width={40} height={40} />
-                    <div>
-                        <p>A distância</p>
-                        <p>Presencial</p>
-                    </div>
-                </div>
+                <ChangeModalityButton selected="presential" />
             </nav>
         </header>
     )
