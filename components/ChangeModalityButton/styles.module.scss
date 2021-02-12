@@ -10,6 +10,7 @@ button.changeModalityButton {
   text-align: left;
 
   svg {
+    fill: $secondary;
     margin-right: 0.5rem;
     transition: $defaultAnimation;
   }
