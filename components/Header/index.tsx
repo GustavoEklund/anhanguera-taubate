@@ -57,6 +57,13 @@ export default function Header(): JSX.Element {
                         <TelegramIcon />
                     </a>
                 </div>
+                <div style={{ display: 'flex' }}>
+                    <ChangeIcon width={40} height={40} />
+                    <div>
+                        <p>A distância</p>
+                        <p>Presencial</p>
+                    </div>
+                </div>
             </nav>
         </header>
     )
