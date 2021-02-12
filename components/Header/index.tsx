@@ -5,6 +5,7 @@ import TelegramIcon from '@/components/Icons/TelegramIcon'
 import InstagramIcon from "@/components/Icons/InstagramIcon";
 import FacebookIcon from "@/components/Icons/FacebookIcon";
 import WhatsAppIcon from "@/components/Icons/WhatsAppIcon";
+ import ChangeIcon from "@/components/Icons/ChangeIcon";
 
 export default function Header(): JSX.Element {
     return (
@@ -16,13 +17,13 @@ export default function Header(): JSX.Element {
                     width={140}
                 />
                 <div className={Styles.buttonsWrapper}>
-                    <Button startIcon={<Image src="/assets/bell_icon.svg" height={20} width={20} alt="Importante" />}>
+                    <Button starticon={<Image src="/assets/bell_icon.svg" height={20} width={20} alt="Importante" />}>
                         Importante
                     </Button>
-                    <Button startIcon={<Image src="/assets/youtube_icon.svg" height={20} width={20} alt="Tutoriais"/>}>
+                    <Button starticon={<Image src="/assets/youtube_icon.svg" height={20} width={20} alt="Tutoriais"/>}>
                         Tutoriais
                     </Button>
-                    <Button startIcon={<Image src="/assets/envelope_icon.svg" height={20} width={20} alt="Contatos"/>}>
+                    <Button starticon={<Image src="/assets/envelope_icon.svg" height={20} width={20} alt="Contatos"/>}>
                         Contatos
                     </Button>
                 </div>

@@ -2,14 +2,14 @@ import React, { ButtonHTMLAttributes, DetailedHTMLProps } from 'react'
 import Styles from './styles.module.scss'
 
 interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-    startIcon?: React.ReactNode
+    starticon?: React.ReactNode
 }
 
 export default function Button(props: ButtonProps): JSX.Element {
-    const { children, startIcon } = props
+    const { children, starticon } = props
     return (
         <button {...props} className={Styles.button}>
-            { startIcon && <span className={Styles.icon}>{startIcon}</span>}
+            { starticon && <span className={Styles.icon}>{starticon}</span>}
             <span>{children}</span>
         </button>
     )
