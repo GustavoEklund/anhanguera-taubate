@@ -10,7 +10,7 @@ button.changeModalityButton {
   text-align: left;
 
   svg {
-    fill: $secondary;
+    fill: $secondaryDark;
     margin-right: 0.5rem;
     transition: $defaultAnimation;
   }
@@ -27,7 +27,7 @@ button.changeModalityButton {
 
   .disabled {
     font-size: 0.8rem;
-    color: $secondary;
+    color: $secondaryDark;
   }
 
   &:hover {
@@ -35,7 +35,7 @@ button.changeModalityButton {
 
     .enabled {
       font-size: 0.8rem;
-      color: $secondary;
+      color: $secondaryDark;
     }
 
     .disabled {
