@@ -38,7 +38,7 @@ export default function Home(): JSX.Element {
                                     alt="Presencial"
                                 />
                             </div>
-                            <Link href="/home">Presencial</Link>
+                            <Link href="/home?modalidade=presencial">Presencial</Link>
                         </div>
                         <div className={Styles.button}>
                             <div className={[Styles.buttonIcon, Styles.buttonRightIcon].join(' ')}>
@@ -49,7 +49,7 @@ export default function Home(): JSX.Element {
                                     alt="Presencial"
                                 />
                             </div>
-                            <Link href="/">SEMI ou 100% WEB</Link>
+                            <Link href="/home?modalidade=distancia">SEMI ou 100% WEB</Link>
                         </div>
                         <button type="button" className={Styles.location}>
                             <Image

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import Styles from './styles.module.scss'
 import Button from '@/components/Button'
 import TelegramIcon from '@/components/Icons/TelegramIcon'
@@ -8,6 +9,14 @@ import WhatsAppIcon from "@/components/Icons/WhatsAppIcon";
 import ChangeModalityButton from '@/components/ChangeModalityButton'
 
 export default function Header(): JSX.Element {
+    const router = useRouter()
+    const modality = router.query?.modalidade === 'presencial' ? 'presential' : 'distance'
+
+    async function handleChangeModality(): Promise<void> {
+        const link = modality === 'presential' ? 'distancia' : 'presencial'
+        await router.push(`/home?modalidade=${link}`)
+    }
+
     return (
         <header className={Styles.header}>
             <nav>
@@ -57,7 +66,7 @@ export default function Header(): JSX.Element {
                         <TelegramIcon />
                     </a>
                 </div>
-                <ChangeModalityButton selected="presential" />
+                <ChangeModalityButton selected={modality} onClick={handleChangeModality} />
             </nav>
         </header>
     )
