@@ -1,0 +1,29 @@
+@import "colors.module";
+
+div.socialMediaWrapper {
+  align-items: center;
+  display: flex;
+
+  a {
+    height: 2rem;
+    width: 2rem;
+    position: relative;
+
+    + a {
+      margin-left: 1rem;
+    }
+
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: $secondary;
+      transition: fill 300ms ease;
+    }
+
+    &:hover {
+      svg {
+        fill: $primary;
+      }
+    }
+  }
+}
