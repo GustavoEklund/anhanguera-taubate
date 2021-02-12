@@ -15,7 +15,7 @@ export default function Header(): JSX.Element {
 
     async function handleChangeModality(): Promise<void> {
         const link = modality === 'presential' ? 'distancia' : 'presencial'
-        await router.push(`/home?modalidade=${link}`)
+        await router.push(`/inicio?modalidade=${link}`)
     }
 
     return (

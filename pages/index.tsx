@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Styles from './styles.module.scss'
 import Layout from '@/components/Layout'
 
-export default function Home(): JSX.Element {
+export default function Inicio(): JSX.Element {
     return (
         <Layout title="Início" headerDisabled footerDisabled>
             <div className={Styles.heroWrapper}>
@@ -38,7 +38,7 @@ export default function Home(): JSX.Element {
                                     alt="Presencial"
                                 />
                             </div>
-                            <Link href="/home?modalidade=presencial">Presencial</Link>
+                            <Link href="/inicio?modalidade=presencial">Presencial</Link>
                         </div>
                         <div className={Styles.button}>
                             <div className={[Styles.buttonIcon, Styles.buttonRightIcon].join(' ')}>
@@ -49,7 +49,7 @@ export default function Home(): JSX.Element {
                                     alt="Presencial"
                                 />
                             </div>
-                            <Link href="/home?modalidade=distancia">SEMI ou 100% WEB</Link>
+                            <Link href="/inicio?modalidade=distancia">SEMI ou 100% WEB</Link>
                         </div>
                         <button type="button" className={Styles.location}>
                             <Image
