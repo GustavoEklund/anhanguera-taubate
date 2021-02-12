@@ -1,9 +1,13 @@
-import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Styles from './styles.module.scss'
 import Button from '@/components/Button'
 import ChangeModalityButton from '@/components/ChangeModalityButton'
 import SocialMediaLinks from '@/components/SocialMediaLinks'
+import BellIcon from '@/components/Icons/BellIcon'
+import YoutubeIcon from '@/components/Icons/YoutubeIcon'
+import EnvelopeIcon from '@/components/Icons/EnvelopeIcon'
+import AnhangueraRectLogo from '@/components/Icons/AnhangueraRectLogo'
 
 export default function Header(): JSX.Element {
     const router = useRouter()
@@ -17,19 +21,21 @@ export default function Header(): JSX.Element {
     return (
         <header className={Styles.header}>
             <nav>
-                <Image
-                    src="/assets/anhanguera_logo_alt.svg"
-                    height={40}
-                    width={140}
-                />
+                <Link href="/">
+                    <AnhangueraRectLogo
+                        height={40}
+                        width={140}
+                        style={{ cursor: 'pointer' }}
+                    />
+                </Link>
                 <div className={Styles.buttonsWrapper}>
-                    <Button starticon={<Image src="/assets/bell_icon.svg" height={20} width={20} alt="Importante" />}>
+                    <Button starticon={<BellIcon width={20} height={20} fill="#333" />}>
                         Importante
                     </Button>
-                    <Button starticon={<Image src="/assets/youtube_icon.svg" height={20} width={20} alt="Tutoriais"/>}>
+                    <Button starticon={<YoutubeIcon width={20} height={20} fill="#333" />}>
                         Tutoriais
                     </Button>
-                    <Button starticon={<Image src="/assets/envelope_icon.svg" height={20} width={20} alt="Contatos"/>}>
+                    <Button starticon={<EnvelopeIcon width={20} height={20} fill="#333" />}>
                         Contatos
                     </Button>
                 </div>
