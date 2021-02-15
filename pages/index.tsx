@@ -10,7 +10,6 @@ import AnhangueraSquareLogo from '@/components/Icons/AnhangueraSquareLogo'
 import HeroCornerShape from '@/components/HeroCornerShape'
 import SocialMediaLinks from '@/components/SocialMediaLinks'
 import Button from '@/components/Button'
-import GoogleMapReact from 'google-map-react'
 
 export default function Landing(): JSX.Element {
     const { windowWidth } = useWindowSize()
@@ -38,18 +37,6 @@ export default function Landing(): JSX.Element {
                             <Button starticon={<MapMarker />}>Nossa localização</Button>
                         </div>
                     )}
-                    <div style={{ height: '100vh', width: '100%' }}>
-                        <GoogleMapReact
-                            bootstrapURLKeys={{ key: 'AIzaSyDdvwvkfIwXX1dlJ52VFE5oAuB3vg4QTLk' }}
-                            defaultCenter={{
-                                lat: 59.95,
-                                lng: 30.33
-                            }}
-                            defaultZoom={11}
-                        >
-
-                        </GoogleMapReact>
-                    </div>
                     <div className={Styles.footerTitle}>
                         <h1>Escolha sua modalidade</h1>
                     </div>
