@@ -1,20 +1,23 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import Styles from './styles.module.scss'
 import Layout from '@/components/Layout'
+import useWindowSize from '@/hooks/useWindowSize'
+import HeroImage from '@/components/HeroImage'
+import SatelliteIcon from '@/components/Icons/SatelliteIcon'
+import MapMarker from '@/components/Icons/MapMarker'
+import DoorOpenIcon from '@/components/Icons/DoorOpenIcon'
+import AnhangueraSquareLogo from '@/components/Icons/AnhangueraSquareLogo'
 
 export default function Landing(): JSX.Element {
+    const { windowWidth } = useWindowSize()
+    const isDesktopWindowSize = (): boolean => windowWidth > 1000
+
     return (
         <Layout title="Início" headerDisabled footerDisabled>
             <div className={Styles.heroWrapper}>
                 <div className={Styles.leftSide}>
                     <div className={Styles.logo}>
-                        <Image
-                            src="/assets/anhanguera_logo.svg"
-                            layout="fill"
-                            alt="Logo Anhanguera"
-                            className={Styles.logoAnhanguera}
-                        />
+                        <AnhangueraSquareLogo className={Styles.logoAnhanguera} />
                     </div>
                     <div className={Styles.heroText}>
                         <p>
@@ -31,42 +34,29 @@ export default function Landing(): JSX.Element {
 
                         <div className={Styles.button}>
                             <div className={[Styles.buttonIcon, Styles.buttonLeftIcon].join(' ')}>
-                                <Image
-                                    src="/assets/door_open_icon.svg"
-                                    width="48"
-                                    height="48"
-                                    alt="Presencial"
-                                />
+                                <DoorOpenIcon />
                             </div>
                             <Link href="/inicio?modalidade=presencial">Presencial</Link>
                         </div>
                         <div className={Styles.button}>
                             <div className={[Styles.buttonIcon, Styles.buttonRightIcon].join(' ')}>
-                                <Image
-                                    src="/assets/satellite_icon.svg"
-                                    width="48"
-                                    height="48"
-                                    alt="Presencial"
-                                />
+                                <SatelliteIcon />
                             </div>
                             <Link href="/inicio?modalidade=distancia">SEMI ou 100% WEB</Link>
                         </div>
                         <button type="button" className={Styles.location}>
-                            <Image
-                                src="/assets/map_marker.svg"
-                                width="24"
-                                height="24"
-                                alt="Presencial"
-                            />
+                            <MapMarker />
                             <span>Nossa localização</span>
                         </button>
                     </footer>
                 </div>
-                <div className={Styles.rightSide}>
-                    <div className={Styles.heroImage}>
-                        <Image src="/assets/hero_image.svg" layout="fill" alt="Hero Shape" />
+                {isDesktopWindowSize() && (
+                    <div className={Styles.rightSide}>
+                        <div className={Styles.heroImage}>
+                            <HeroImage />
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
         </Layout>
     )

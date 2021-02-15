@@ -6,14 +6,56 @@
 
   svg {
     display: block;
-    width: 70%;
-    margin: 63px 0 0 auto;
+    width: min(1000px, 70%);
+    position: absolute;
+    top: 63px;
+    right: 0;
+    z-index: 1;
+  }
+
+  div.heroCard {
+    position: relative;
+    z-index: 2;
+    width: calc((min(100vw, 1232px) / 3) - 16px);
+    border-radius: 0.5rem;
+    height: 300px;
+    padding: 2rem;
+    background: hsla(0, 0%, 100%, 0.4);
+    backdrop-filter: saturate(180%) blur(15px);
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px -5px rgba($black, 0.2);
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: $primary;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    strong {
+      color: $secondary;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    button {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+    }
   }
 }
 
 .container {
   max-width: 1280px;
-  padding: 100px 24px;
+  padding: 100px 3rem 3rem 3rem;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -37,6 +79,7 @@
       background-repeat: no-repeat;
       background-position: center;
       transition: $defaultAnimation;
+      border-bottom: solid 1px rgba(0, 0, 0, 0.1);
     }
 
     main {
@@ -64,25 +107,68 @@
       }
     }
 
-    button {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 20px;
-      opacity: 1;
-      z-index: 2;
-
-      span {
-        color: $white;
-      }
-    }
-
     &:hover {
       transform: scale(1.01, 1.01);
       box-shadow: 0 5px 20px -5px rgba($black, 0.2);
 
       .imageWrapper {
         background-size: 105%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .heroLanding {
+    svg {
+      display: none;
+    }
+
+    div.mobileHeroBanner {
+      height: 4rem;
+      width: 100%;
+      top: 63px;
+      background-image: linear-gradient(270deg, #ee9125 0%, rgba(246, 146, 30, 0.24) 100%);
+      position: absolute;
+      display: block;
+    }
+
+    div.heroCard {
+      width: calc(50% - 0.5rem);
+      padding: 1rem;
+      height: unset;
+
+      h1 { font-size: 1rem; }
+
+      h2 { font-size: 0.8rem; }
+
+      strong {
+        font-size: 0.8rem;
+        font-weight: normal;
+      }
+
+      button {
+        position: absolute;
+        top: 1.75rem;
+        left: calc(100% + 2rem);
+        width: calc(50vw - 2.5rem);
+
+        span {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .container {
+    padding: calc(64px + 1rem) 1rem 1rem 1rem;
+
+    .card {
+      width: 100%;
+
+      .imageWrapper {
+        height: calc((100vw - 2rem) / 16 * 9);
       }
     }
   }

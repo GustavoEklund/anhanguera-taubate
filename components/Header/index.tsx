@@ -8,10 +8,14 @@ import BellIcon from '@/components/Icons/BellIcon'
 import YoutubeIcon from '@/components/Icons/YoutubeIcon'
 import EnvelopeIcon from '@/components/Icons/EnvelopeIcon'
 import AnhangueraRectLogo from '@/components/Icons/AnhangueraRectLogo'
+import useWindowSize from '@/hooks/useWindowSize'
 
 export default function Header(): JSX.Element {
     const router = useRouter()
     const modality = router.query?.modalidade === 'presencial' ? 'presential' : 'distance'
+    const { windowWidth } = useWindowSize()
+
+    const isDesktopSize = (): boolean => windowWidth > 1000
 
     async function handleChangeModality(): Promise<void> {
         const link = modality === 'presential' ? 'distancia' : 'presencial'
@@ -28,18 +32,22 @@ export default function Header(): JSX.Element {
                         style={{ cursor: 'pointer' }}
                     />
                 </Link>
-                <div className={Styles.buttonsWrapper}>
-                    <Button starticon={<BellIcon width={20} height={20} fill="#333" />}>
-                        Importante
-                    </Button>
-                    <Button starticon={<YoutubeIcon width={20} height={20} fill="#333" />}>
-                        Tutoriais
-                    </Button>
-                    <Button starticon={<EnvelopeIcon width={20} height={20} fill="#333" />}>
-                        Contatos
-                    </Button>
-                </div>
-                <SocialMediaLinks />
+                {isDesktopSize() && (
+                    <>
+                        <div className={Styles.buttonsWrapper}>
+                            <Button starticon={<BellIcon />}>
+                                Importante
+                            </Button>
+                            <Button starticon={<YoutubeIcon />}>
+                                Tutoriais
+                            </Button>
+                            <Button starticon={<EnvelopeIcon />}>
+                                Contatos
+                            </Button>
+                        </div>
+                        <SocialMediaLinks />
+                    </>
+                )}
                 <ChangeModalityButton selected={modality} onClick={handleChangeModality} />
             </nav>
         </header>

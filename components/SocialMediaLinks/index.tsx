@@ -4,9 +4,13 @@ import FacebookIcon from '@/components/Icons/FacebookIcon'
 import WhatsAppIcon from '@/components/Icons/WhatsAppIcon'
 import TelegramIcon from '@/components/Icons/TelegramIcon'
 
-export default function SocialMediaLinks(): JSX.Element {
+type Props = {
+    className?: string
+}
+
+export default function SocialMediaLinks({ className }: Props): JSX.Element {
     return (
-        <div className={Styles.socialMediaWrapper}>
+        <div className={[Styles.socialMediaWrapper, className ?? ''].join(' ')}>
             <a
                 href="https://www.instagram.com/anhanguera_taubate/"
                 rel="noreferrer"

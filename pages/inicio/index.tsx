@@ -1,8 +1,10 @@
-import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
+import {GetServerSideProps, InferGetServerSidePropsType, NextPage} from 'next'
 import Layout from '@/components/Layout'
-import Button from '@/components/Button'
 import Styles from './styles.module.scss'
 import HomeHeroLandingImage from "@/components/HomeHeroLandingImage";
+import Button from "@/components/Button";
+import HamburgerMenu from "@/components/HamburgerMenu";
+import useWindowSize from "@/hooks/useWindowSize";
 
 type Post = {
     id: number
@@ -29,9 +31,22 @@ export const getServerSideProps: GetServerSideProps<any | QueryParams> = async (
 }
 
 const Index: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ posts }) => {
+    const { windowWidth } = useWindowSize()
+    const isDesktopSize = (): boolean => windowWidth > 1000
+
     return (
         <Layout title="Presencial" footerDisabled>
+            {!isDesktopSize() && <HamburgerMenu />}
             <div className={Styles.heroLanding}>
+                <div className={Styles.container}>
+                    <div className={Styles.heroCard}>
+                        <h1>Fique Atento</h1>
+                        <h2>Atualize seus dados</h2>
+                        <p><strong>Evite problemas, informe seus dados para atualização.</strong></p>
+                        <Button variant="contained">Atualize</Button>
+                    </div>
+                </div>
+                <div className={Styles.mobileHeroBanner} />
                 <HomeHeroLandingImage />
             </div>
             <div className={Styles.container}>

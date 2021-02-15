@@ -1,0 +1,142 @@
+@import "colors.module";
+
+.menuOverlay {
+  background-color: rgba($black, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1010;
+  transition: $defaultAnimation;
+
+  &.menuOpen {
+    opacity: 1;
+    backdrop-filter: blur(3px);
+  }
+
+  &.menuClosed {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.menuMediaLinks {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  z-index: 1020;
+  transform: translateX(-50%);
+
+  svg {
+    fill: $white !important;
+  }
+
+  a {
+    margin: 0 2rem;
+  }
+
+  &.menuOpen {
+    opacity: 1;
+  }
+
+  &.menuClosed {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.hamburgerButton {
+  position: fixed;
+  width: 4rem;
+  height: 4rem;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: $primary;
+  z-index: 1020;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 30px -5px rgba($black, 0.8);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: $defaultAnimation;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  svg {
+    width: 50%;
+    height: 50%;
+    fill: $white;
+  }
+
+  &:hover {
+    transform: scale(1.05, 1.05);
+  }
+}
+
+.menuItems {
+  position: fixed;
+  width: calc(100vw - 4rem);
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1015;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  transition: $defaultAnimation;
+
+  li {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    transition: $defaultAnimation;
+    cursor: pointer;
+
+    span {
+      font-size: 1.5rem;
+      color: $white;
+      font-weight: bold;
+      transition: $defaultAnimation;
+    }
+
+    svg {
+      height: 2rem;
+      width: 2rem;
+      fill: $white;
+      margin: 0 1rem;
+      position: relative;
+      transition: $defaultAnimation;
+    }
+
+    &:hover {
+      span { color: $primary; }
+      svg { fill: $primary; }
+    }
+  }
+
+  &.menuOpen {
+    height: calc(6rem * 3);
+    margin-bottom: 6rem;
+
+    li {
+      flex: 1;
+      opacity: 1;
+    }
+  }
+
+  &.menuClosed {
+    height: 4rem;
+    padding-bottom: 0;
+    pointer-events: none;
+
+    li {
+      flex: 0;
+      opacity: 0;
+    }
+  }
+}
