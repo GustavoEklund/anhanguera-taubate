@@ -1,8 +1,18 @@
 @import "colors.module";
 
+.heroLanding {
+  position: relative;
+  width: 100%;
+
+  svg {
+    display: block;
+    width: 70%;
+    margin: 63px 0 0 auto;
+  }
+}
+
 .container {
-  max-width: 1048px;
-  min-height: 100vh;
+  max-width: 1280px;
   padding: 100px 24px;
   margin: 0 auto;
   display: flex;
@@ -11,17 +21,47 @@
 
   .card {
     position: relative;
-    width: 300px;
-    height: 452px;
+    width: calc((100% / 3) - 16px);
     border-radius: 10px;
-    margin-bottom: 3rem;
+    margin: 0 8px 2rem 8px;
     border: 1px solid rgb(0 0 0 / 10%);
     box-shadow: 0 5px 20px -5px rgba($black, 0.1);
     cursor: pointer;
     overflow: hidden;
+    transition: $defaultAnimation;
 
-    img {
+    .imageWrapper {
+      width: 100%;
+      height: calc(((min(100vw, 1232px) / 3) - 16px) / 16 * 9);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
       transition: $defaultAnimation;
+    }
+
+    main {
+      padding: 1rem;
+
+      strong {
+        font-weight: bold;
+      }
+
+      .truncateOverflow {
+        position: relative;
+        height: 2.4rem;
+        overflow: hidden;
+
+        &::after {
+          content: '';
+          text-align: right;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 6rem;
+          height: 1.2rem;
+          background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 70%);
+        }
+      }
     }
 
     button {
@@ -29,7 +69,7 @@
       left: 50%;
       transform: translateX(-50%);
       bottom: 20px;
-      opacity: 0;
+      opacity: 1;
       z-index: 2;
 
       span {
@@ -37,41 +77,12 @@
       }
     }
 
-    &::after {
-      content: attr(data-title);
-      position: absolute;
-      left: 0;
-      top: 0;
-      pointer-events: none;
-      height: 100%;
-      width: 100%;
-      border-radius: 0.5rem;
-      color: transparent;
-      background-color: rgba($black, 0);
-      transition: $defaultAnimation;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      text-align: center;
-      font-weight: bold;
-      padding: 1rem;
-      box-sizing: border-box;
-    }
-
     &:hover {
-      img {
-        transform: scale(1.1);
-      }
+      transform: scale(1.01, 1.01);
+      box-shadow: 0 5px 20px -5px rgba($black, 0.2);
 
-      button {
-        opacity: 1;
-      }
-
-      &::after {
-        color: $white;
-        font-size: 1rem;
-        background-color: rgba($black, 0.8);
+      .imageWrapper {
+        background-size: 105%;
       }
     }
   }

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Styles from './styles.module.scss'
 import Layout from '@/components/Layout'
 
-export default function Inicio(): JSX.Element {
+export default function Landing(): JSX.Element {
     return (
         <Layout title="Início" headerDisabled footerDisabled>
             <div className={Styles.heroWrapper}>
