@@ -9,11 +9,23 @@
   align-items: center;
   height: 36px;
 
-  > span.icon {
+  > span.startIcon,
+  > span.endIcon {
     width: 20px;
     height: 20px;
-    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > svg {
+      width: 20px;
+      height: 20px;
+    }
   }
+
+  > span.startIcon { margin-right: 0.5rem; }
+
+  > span.endIcon { margin-left: 0.5rem; }
 
   > span {
     text-transform: uppercase;
