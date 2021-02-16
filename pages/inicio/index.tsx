@@ -45,7 +45,12 @@ const Index: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = 
                         <h1>Fique Atento</h1>
                         <h2>Atualize seus dados</h2>
                         <p><strong>Evite problemas, informe seus dados para atualização.</strong></p>
-                        <Button variant="contained">Atualize</Button>
+                        <Button
+                            variant="contained"
+                            onClick={() => window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=dnsOpaWOLEm_F5fWUvw86aDgUwsoAJ1NljZS7R7VIdNUMlFCWlBGWEk2WVYwTU0wRktMNUpYSzNSTy4u')}
+                        >
+                            Atualize
+                        </Button>
                     </div>
                 </div>
                 <div className={Styles.mobileHeroBanner} />
