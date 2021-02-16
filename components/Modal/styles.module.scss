@@ -13,30 +13,78 @@ div.modalOverlay {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: $defaultAnimation;
 
   div.modalWrapper {
-    max-width: 600px;
+    max-width: 1000px;
+    margin: 1rem;
+    width: 100%;
     min-height: 100px;
     background-color: $white;
     border-radius: 0.5rem;
     border: $borderColor;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 30px -5px rgba($black, 0.8);
+    transition: $defaultAnimation;
 
     header {
       position: relative;
       width: 100%;
-      padding: 0.5rem;
+      padding: 1rem;
       border-bottom: $borderColor;
 
       button {
-        width: 1rem;
-        height: 1rem;
+        width: 2rem;
+        height: 2rem;
         border: none;
-        font-size: 1rem;
+        font-size: 1.5rem;
         font-weight: bold;
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 50%;
+        right: 0.5rem;
+        background-color: transparent;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: $defaultAnimation;
+        transform: translateY(-50%);
+
+        &:hover {
+          background-color: rgba($primaryLight, 0.2);
+        }
       }
     }
+
+    main {
+      flex-grow: 1;
+      width: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    footer {
+      border-top: $borderColor;
+      padding: 1rem;
+    }
+  }
+}
+
+div.modalOpen {
+  opacity: 1;
+  backdrop-filter: saturate(180%) blur(5px);
+  pointer-events: unset;
+
+  div.modalWrapper {
+    transform: translateY(0);
+  }
+}
+
+div.modalClosed {
+  opacity: 0;
+  backdrop-filter: saturate(0%) blur(0);
+  pointer-events: none;
+
+  div.modalWrapper {
+    transform: translateY(50%);
   }
 }
