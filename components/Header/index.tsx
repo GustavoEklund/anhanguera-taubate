@@ -17,9 +17,12 @@ export default function Header(): JSX.Element {
 
     const isDesktopSize = (): boolean => windowWidth > 1000
 
+    function getModality(): string {
+        return modality === 'presential' ? 'distancia' : 'presencial'
+    }
+
     async function handleChangeModality(): Promise<void> {
-        const link = modality === 'presential' ? 'distancia' : 'presencial'
-        await router.push(`/inicio?modalidade=${link}`)
+        await router.push(`/inicio?modalidade=${getModality()}`)
     }
 
     return (
@@ -35,20 +38,22 @@ export default function Header(): JSX.Element {
                 {isDesktopSize() && (
                     <>
                         <div className={Styles.buttonsWrapper}>
-                            <Button starticon={<BellIcon />}>
+                            <Button starticon={<BellIcon />} onClick={() => router.push(`/inicio?modalidade=${getModality()}`)}>
                                 Importante
                             </Button>
-                            <Button starticon={<YoutubeIcon />}>
+                            <Button starticon={<YoutubeIcon />} onClick={() => router.push(`/inicio?modalidade=${getModality()}`)}>
                                 Tutoriais
                             </Button>
-                            <Button starticon={<EnvelopeIcon />}>
+                            <Button starticon={<EnvelopeIcon />} onClick={() => router.push('/informacao/contatos_anhanguera_taubate')}>
                                 Contatos
                             </Button>
                         </div>
                         <SocialMediaLinks />
                     </>
                 )}
-                <ChangeModalityButton selected={modality} onClick={handleChangeModality} />
+                {router.query?.modalidade && (
+                    <ChangeModalityButton selected={modality} onClick={handleChangeModality} />
+                )}
             </nav>
         </header>
     )
