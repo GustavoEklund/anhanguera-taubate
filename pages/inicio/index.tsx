@@ -1,4 +1,5 @@
-import {GetServerSideProps, InferGetServerSidePropsType, NextPage} from 'next'
+import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
+import { useRouter } from 'next/router'
 import Layout from '@/components/Layout'
 import Styles from './styles.module.scss'
 import HomeHeroLandingImage from '@/components/HomeHeroLandingImage'
@@ -32,6 +33,7 @@ export const getServerSideProps: GetServerSideProps<any | QueryParams> = async (
 
 const Index: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ posts }) => {
     const { windowWidth } = useWindowSize()
+    const router = useRouter()
     const isDesktopSize = (): boolean => windowWidth > 1000
 
     return (
@@ -55,9 +57,12 @@ const Index: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = 
                         className={Styles.card}
                         key={post.id}
                         data-title={post.title}
-                        onClick={() => post.link ? window.open(post.link) : null}
+                        onClick={() => post.link === 'id' ? router.push(`/informacao/${post.id}`) : window.open(post.link)}
                     >
-                        <div className={Styles.imageWrapper} style={{ backgroundImage: `url(http://public.essencialavida.com/images/${post.mainImage})` }} />
+                        <div
+                            className={Styles.imageWrapper}
+                            style={{ backgroundImage: `url(http://public.essencialavida.com/images/${post.mainImage})` }}
+                        />
                         <main>
                             <p className={Styles.truncateOverflow} title={post.title}>
                                 <strong>{post.title}</strong>
