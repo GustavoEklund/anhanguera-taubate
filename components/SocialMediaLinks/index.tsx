@@ -33,7 +33,7 @@ export default function SocialMediaLinks({ className }: Props): JSX.Element {
                 <WhatsAppIcon />
             </a>
             <a
-                href="https://api.whatsapp.com/send/?phone=551236344146"
+                href="https://t.me/joinchat/HJF5VdJCsrFaME_7"
                 rel="noreferrer"
                 target="_blank"
             >
