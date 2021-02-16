@@ -3,7 +3,7 @@ import Styles from './styles.module.scss'
 import ChangeIcon from '@/components/Icons/ChangeIcon'
 
 interface Props extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-    selected: 'distance' | 'presential'
+    selected: 'distance' | 'presential' | undefined
 }
 
 export default function ChangeModalityButton(props: Props): JSX.Element {
