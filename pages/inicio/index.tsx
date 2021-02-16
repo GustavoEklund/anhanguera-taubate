@@ -1,10 +1,10 @@
 import {GetServerSideProps, InferGetServerSidePropsType, NextPage} from 'next'
 import Layout from '@/components/Layout'
 import Styles from './styles.module.scss'
-import HomeHeroLandingImage from "@/components/HomeHeroLandingImage";
-import Button from "@/components/Button";
-import HamburgerMenu from "@/components/HamburgerMenu";
-import useWindowSize from "@/hooks/useWindowSize";
+import HomeHeroLandingImage from '@/components/HomeHeroLandingImage'
+import Button from '@/components/Button'
+import HamburgerMenu from '@/components/HamburgerMenu'
+import useWindowSize from '@/hooks/useWindowSize'
 
 type Post = {
     id: number

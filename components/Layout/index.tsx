@@ -28,7 +28,7 @@ export default function Layout({ title, headerDisabled, footerDisabled, children
                 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon_anhanguera.png" />
 
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Yanone+Kaffeesatz:wght@300;400;700&display=swap" rel="stylesheet" />
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Yanone+Kaffeesatz:wght@300;400;700&display=swap" />
             </Head>
             { !headerDisabled && <Header /> }
             <main>{children}</main>

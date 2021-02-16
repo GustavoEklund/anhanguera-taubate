@@ -14,8 +14,6 @@ div.heroWrapper {
     justify-content: space-between;
     z-index: 1;
     padding: 5vh 0;
-    overflow-y: auto;
-    overflow-x: hidden;
 
     div.logoHeader {
       display: flex;
@@ -54,7 +52,7 @@ div.heroWrapper {
       }
     }
 
-    .footer {
+    footer.footer {
       display: flex;
       justify-content: space-between;
       padding: 0 4rem;
@@ -180,6 +178,8 @@ div.heroWrapper {
     div.leftSide {
       width: 100%;
       padding-top: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
 
       div.logoHeader {
         svg.logo {
