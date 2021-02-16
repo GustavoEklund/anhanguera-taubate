@@ -1,0 +1,42 @@
+@import "colors.module";
+
+div.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1010;
+  width: 100vw;
+  height: 100vh;
+  background-color: hsla(0, 0%, 0%, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  div.modalWrapper {
+    max-width: 600px;
+    min-height: 100px;
+    background-color: $white;
+    border-radius: 0.5rem;
+    border: $borderColor;
+
+    header {
+      position: relative;
+      width: 100%;
+      padding: 0.5rem;
+      border-bottom: $borderColor;
+
+      button {
+        width: 1rem;
+        height: 1rem;
+        border: none;
+        font-size: 1rem;
+        font-weight: bold;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+}
