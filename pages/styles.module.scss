@@ -173,6 +173,10 @@ div.heroWrapper {
   }
 }
 
+.mapWrapper {
+  height: calc(100vh - 8rem);
+}
+
 @media screen and (max-width: 1000px) {
   div.heroWrapper {
     div.leftSide {
