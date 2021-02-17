@@ -2,11 +2,14 @@ import React from 'react'
 import Head from 'next/head'
 import Styles from './styles.module.scss'
 import Header from '@/components/Header'
+import HamburgerMenu from '@/components/HamburgerMenu'
+import useWindowSize from '@/hooks/useWindowSize'
 
 type LayoutTypes = {
   title: string
   headerDisabled?: boolean
   footerDisabled?: boolean
+  hamburgerMenuDisabled?: boolean
   children: React.ReactNode | React.ReactNode[]
 }
 
@@ -14,8 +17,11 @@ export default function Layout({
   title,
   headerDisabled,
   footerDisabled,
+  hamburgerMenuDisabled,
   children
 }: LayoutTypes): JSX.Element {
+  const { windowWidth } = useWindowSize()
+  const isDesktopSize = (): boolean => windowWidth > 1000
   return (
     <div className={Styles.main}>
       <Head>
@@ -41,6 +47,7 @@ export default function Layout({
       {!headerDisabled && <Header />}
       <main>{children}</main>
       {!footerDisabled && <footer>Footer</footer>}
+      {!isDesktopSize() && !hamburgerMenuDisabled && <HamburgerMenu />}
     </div>
   )
 }

@@ -19,7 +19,7 @@ export default function Landing(): JSX.Element {
   const isDesktopWindowSize = (): boolean => windowWidth > 1000
 
   return (
-    <Layout title="Início" headerDisabled footerDisabled>
+    <Layout title="Início" headerDisabled footerDisabled hamburgerMenuDisabled>
       <div className={Styles.heroWrapper}>
         <div className={Styles.leftSide}>
           <div className={Styles.logoHeader}>

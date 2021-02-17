@@ -1,11 +1,9 @@
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 import { useRouter } from 'next/router'
-import Layout from '@/components/Layout'
 import Styles from './styles.module.scss'
+import Layout from '@/components/Layout'
 import HomeHeroLandingImage from '@/components/HomeHeroLandingImage'
 import Button from '@/components/Button'
-import HamburgerMenu from '@/components/HamburgerMenu'
-import useWindowSize from '@/hooks/useWindowSize'
 
 type Post = {
   id: number
@@ -31,14 +29,14 @@ export const getServerSideProps: GetServerSideProps<any | QueryParams> = async (
   }
 }
 
+const updatePersonalDataLink =
+  'https://forms.office.com/Pages/ResponsePage.aspx?id=dnsOpaWOLEm_F5fWUvw86aDgUwsoAJ1NljZS7R7VIdNUMlFCWlBGWEk2WVYwTU0wRktMNUpYSzNSTy4u'
+
 const Index: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ posts }) => {
-  const { windowWidth } = useWindowSize()
   const router = useRouter()
-  const isDesktopSize = (): boolean => windowWidth > 1000
 
   return (
     <Layout title="Presencial" footerDisabled>
-      {!isDesktopSize() && <HamburgerMenu />}
       <div className={Styles.heroLanding}>
         <div className={Styles.container}>
           <div className={Styles.heroCard}>
@@ -47,14 +45,7 @@ const Index: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = 
             <p>
               <strong>Evite problemas, informe seus dados para atualização.</strong>
             </p>
-            <Button
-              variant="contained"
-              onClick={() =>
-                window.open(
-                  'https://forms.office.com/Pages/ResponsePage.aspx?id=dnsOpaWOLEm_F5fWUvw86aDgUwsoAJ1NljZS7R7VIdNUMlFCWlBGWEk2WVYwTU0wRktMNUpYSzNSTy4u'
-                )
-              }
-            >
+            <Button variant="contained" onClick={() => window.open(updatePersonalDataLink)}>
               Atualize
             </Button>
           </div>
