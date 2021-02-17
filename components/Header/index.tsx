@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Styles from './styles.module.scss'
@@ -12,18 +13,20 @@ import useWindowSize from '@/hooks/useWindowSize'
 
 export default function Header(): JSX.Element {
   const router = useRouter()
-  const modality = router.query?.modalidade === 'presencial' ? 'presential' : 'distance'
   const { windowWidth } = useWindowSize()
+  const [modality, setModality] = useState<'presencial' | 'distancia'>()
 
   const isDesktopSize = (): boolean => windowWidth > 1000
 
-  function getModality(): string {
-    return modality === 'presential' ? 'distancia' : 'presencial'
+  async function handleChangeModality(): Promise<void> {
+    await router.push(
+      `${router.pathname}?modalidade=${modality === 'presencial' ? 'distancia' : 'presencial'}`
+    )
   }
 
-  async function handleChangeModality(): Promise<void> {
-    await router.push(`/inicio?modalidade=${getModality()}`)
-  }
+  useEffect(() => {
+    setModality(router.query?.modalidade === 'presencial' ? 'presencial' : 'distancia')
+  }, [router])
 
   return (
     <header className={Styles.header}>
@@ -35,20 +38,22 @@ export default function Header(): JSX.Element {
           <>
             <div className={Styles.buttonsWrapper}>
               <Button
+                className={router.pathname === '/inicio' ? Styles.buttonActive : ''}
                 starticon={<BellIcon />}
-                onClick={() => router.push(`/inicio?modalidade=${getModality()}`)}
+                onClick={() => router.push(`/inicio?modalidade=${modality}`)}
               >
                 Importante
               </Button>
               <Button
                 starticon={<YoutubeIcon />}
-                onClick={() => router.push(`/inicio?modalidade=${getModality()}`)}
+                onClick={() => router.push(`/inicio?modalidade=${modality}`)}
               >
                 Tutoriais
               </Button>
               <Button
+                className={router.pathname === '/contatos' ? Styles.buttonActive : ''}
                 starticon={<EnvelopeIcon />}
-                onClick={() => router.push('/informacao/contatos_anhanguera_taubate')}
+                onClick={() => router.push(`/contatos?modalidade=${modality}`)}
               >
                 Contatos
               </Button>

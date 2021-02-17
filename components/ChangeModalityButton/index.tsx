@@ -4,7 +4,7 @@ import ChangeIcon from '@/components/Icons/ChangeIcon'
 
 interface Props
   extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-  selected: 'distance' | 'presential' | undefined
+  selected: 'distancia' | 'presencial' | undefined
 }
 
 export default function ChangeModalityButton(props: Props): JSX.Element {
@@ -16,8 +16,8 @@ export default function ChangeModalityButton(props: Props): JSX.Element {
     <button type="button" className={Styles.changeModalityButton} {...props}>
       <ChangeIcon width={40} height={40} />
       <div>
-        <p className={Styles[getStatus('distance')]}>A distância</p>
-        <p className={Styles[getStatus('presential')]}>Presencial</p>
+        <p className={Styles[getStatus('distancia')]}>A distância</p>
+        <p className={Styles[getStatus('presencial')]}>Presencial</p>
       </div>
     </button>
   )

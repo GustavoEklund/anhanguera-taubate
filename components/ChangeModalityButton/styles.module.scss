@@ -45,4 +45,18 @@ button.changeModalityButton {
       color: $primary;
     }
   }
+
+  &:focus {
+    svg { fill: $secondaryDark; }
+
+    .enabled {
+      font-size: 1.2rem;
+      color: $primary;
+    }
+
+    .disabled {
+      font-size: 0.8rem;
+      color: $secondaryDark;
+    }
+  }
 }

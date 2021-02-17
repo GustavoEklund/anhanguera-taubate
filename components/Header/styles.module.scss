@@ -26,6 +26,14 @@
       display: flex;
       align-items: center;
 
+      > button.buttonActive {
+        > span {
+          color: $primary;
+
+          > svg { fill: $primary; }
+        }
+      }
+
       > button + button {
         margin-left: 8px;
       }
