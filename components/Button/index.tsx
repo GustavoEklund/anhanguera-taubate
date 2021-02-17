@@ -9,11 +9,13 @@ interface ButtonProps
 }
 
 export default function Button(props: ButtonProps): JSX.Element {
-  const { children, starticon, endicon, ...otherProps } = props
+  const { children, starticon, endicon, className, ...otherProps } = props
   return (
     <button
       {...otherProps}
-      className={[Styles.button, Styles[`${props.variant || 'default'}Button`]].join(' ')}
+      className={[Styles.button, Styles[`${props.variant || 'default'}Button`], className].join(
+        ' '
+      )}
     >
       {starticon && <span className={Styles.startIcon}>{starticon}</span>}
       <span>{children}</span>
