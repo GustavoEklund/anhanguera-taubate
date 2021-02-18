@@ -1,0 +1,61 @@
+@import "colors.module";
+
+div.contactWrapper {
+  width: 50%;
+  min-height: 100px;
+  display: flex;
+  margin-bottom: 3rem;
+
+  div.contactPhoto {
+    height: 4rem;
+    min-width: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 30px -5px rgba($black, 0.1);
+    border: $borderDark;
+
+    img {
+      height: inherit;
+      width: inherit;
+    }
+  }
+
+  div.contactDetails {
+    padding-left: 1rem;
+
+    h2 {
+      color: $secondary;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: $primary;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    p {
+      > span {
+        display: block;
+        margin-bottom: 1rem;
+
+        > strong {
+          color: $secondary;
+        }
+      }
+    }
+
+    a {
+      color: $primary;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  div.contactWrapper {
+    width: 100%;
+  }
+}
