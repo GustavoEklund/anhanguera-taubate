@@ -37,6 +37,8 @@ div.contactWrapper {
       font-weight: bold;
     }
 
+    a { color: $primary; }
+
     p {
       > span {
         display: block;
@@ -46,10 +48,12 @@ div.contactWrapper {
           color: $secondary;
         }
       }
-    }
 
-    a {
-      color: $primary;
+      > a {
+        color: $primary;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
     }
   }
 }

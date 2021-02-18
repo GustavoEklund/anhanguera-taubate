@@ -8,10 +8,23 @@ interface Props
   contactTitle: string | string[]
   subtitle: string | string[]
   contact: string | string[]
+  link?: string | string[]
 }
 
 export default function Contact(props: Props): JSX.Element {
-  const { photo, contactTitle, subtitle, contact, ...otherProps } = props
+  const { photo, contactTitle, subtitle, link, contact, ...otherProps } = props
+
+  function getSubtitle(sub: string | string[]): JSX.Element[] | string {
+    return typeof sub === 'string'
+      ? sub
+      : sub.map((nameSlice: string) => (
+          <React.Fragment key={nameSlice}>
+            {nameSlice}
+            <br />
+          </React.Fragment>
+        ))
+  }
+
   return (
     <div className={Styles.contactWrapper} {...otherProps}>
       <div className={Styles.contactPhoto}>
@@ -34,16 +47,21 @@ export default function Contact(props: Props): JSX.Element {
               ))}
         </h2>
         <p>
-          <strong>
-            {typeof subtitle === 'string'
-              ? subtitle
-              : subtitle.map((nameSlice: string) => (
-                  <React.Fragment key={nameSlice}>
-                    {nameSlice}
-                    <br />
-                  </React.Fragment>
-                ))}
-          </strong>
+          {link ? (
+            typeof link === 'string' ? (
+              <a href={link} target="_blank" rel="noreferrer">
+                {getSubtitle(subtitle)}
+              </a>
+            ) : (
+              link?.map((linkSlice: string, key: number) => (
+                <a href={linkSlice} key={linkSlice} target="_blank" rel="noreferrer">
+                  {getSubtitle(subtitle)[key]}
+                </a>
+              ))
+            )
+          ) : (
+            <strong>{getSubtitle(subtitle)}</strong>
+          )}
         </p>
         <p>
           {typeof contact === 'string'
