@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Styles from './styles.module.scss'
@@ -10,23 +9,14 @@ import YoutubeIcon from '@/components/Icons/YoutubeIcon'
 import EnvelopeIcon from '@/components/Icons/EnvelopeIcon'
 import AnhangueraRectLogo from '@/components/Icons/AnhangueraRectLogo'
 import useWindowSize from '@/hooks/useWindowSize'
+import useModality from '@/hooks/useModality'
 
 export default function Header(): JSX.Element {
   const router = useRouter()
   const { windowWidth } = useWindowSize()
-  const [modality, setModality] = useState<'presencial' | 'distancia'>()
+  const { modality, handleToggleModality } = useModality()
 
   const isDesktopSize = (): boolean => windowWidth > 1000
-
-  async function handleChangeModality(): Promise<void> {
-    await router.push(
-      `${router.pathname}?modalidade=${modality === 'presencial' ? 'distancia' : 'presencial'}`
-    )
-  }
-
-  useEffect(() => {
-    setModality(router.query?.modalidade === 'presencial' ? 'presencial' : 'distancia')
-  }, [router])
 
   return (
     <header className={Styles.header}>
@@ -62,7 +52,7 @@ export default function Header(): JSX.Element {
           </>
         )}
         {router.query?.modalidade && (
-          <ChangeModalityButton selected={modality} onClick={handleChangeModality} />
+          <ChangeModalityButton selected={modality} onClick={handleToggleModality} />
         )}
       </nav>
     </header>
