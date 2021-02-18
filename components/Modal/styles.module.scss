@@ -22,7 +22,7 @@ div.modalOverlay {
     min-height: 100px;
     background-color: $white;
     border-radius: 0.5rem;
-    border: $borderColor;
+    border: $borderDark;
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 30px -5px rgba($black, 0.8);
@@ -32,7 +32,7 @@ div.modalOverlay {
       position: relative;
       width: 100%;
       padding: 1rem;
-      border-bottom: $borderColor;
+      border-bottom: $borderDark;
 
       button {
         width: 2rem;
@@ -63,7 +63,7 @@ div.modalOverlay {
     }
 
     footer {
-      border-top: $borderColor;
+      border-top: $borderDark;
       padding: 1rem;
     }
   }
