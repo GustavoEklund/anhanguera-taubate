@@ -61,11 +61,20 @@ const Index: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = 
               className={Styles.card}
               key={post.id}
               data-title={post.title}
-              onClick={() =>
-                post.link === 'id'
-                  ? router.push(`/informacao/${post.id}`)
-                  : window.open(post?.link || '#')
-              }
+              onClick={async (): Promise<void> => {
+                if (!post.link) {
+                  return
+                }
+                if (post.link === 'id') {
+                  await router.push(`/informacao/${post.id}`)
+                  return
+                }
+                if (post.link.substr(0, 1) === '/') {
+                  await router.push(post.link)
+                  return
+                }
+                window.open(post.link)
+              }}
             >
               <div
                 className={Styles.imageWrapper}
