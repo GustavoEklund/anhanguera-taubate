@@ -222,19 +222,27 @@ const Contatos: NextPage = () => {
         <Contact
           contactTitle="Relacionamento com o aluno"
           subtitle="WhatsApp: (12) 3625-4951 - Jully"
+          link="https://wa.me/551236254951"
           contact={[]}
         />
         <Contact
           contactTitle="Acordos e negociações"
           subtitle={['WhatsApp - (12) 3634-4153 - Amanda', 'WhatsApp - (12) 3625-4950 - Jhenifer']}
+          link={['https://wa.me/551236344153', 'https://wa.me/551236254950']}
           contact={[]}
         />
         <Contact
           contactTitle="Central de estágio"
           subtitle="WhatsApp - (12) 3625-4939 - Lucinéia"
+          link="https://wa.me/551236254939"
           contact={[]}
         />
-        <Contact contactTitle="Informática" subtitle="WhatsApp - (12) 3634-4146" contact={[]} />
+        <Contact
+          contactTitle="Informática"
+          subtitle="WhatsApp - (12) 3634-4146"
+          link="https://wa.me/551236344146"
+          contact={[]}
+        />
       </div>
     </Layout>
   )
