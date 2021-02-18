@@ -4,6 +4,7 @@ import Styles from './styles.module.scss'
 import Layout from '@/components/Layout'
 import HomeHeroLandingImage from '@/components/HomeHeroLandingImage'
 import Button from '@/components/Button'
+import useModality from '@/hooks/useModality'
 
 type Post = {
   id: number
@@ -34,9 +35,10 @@ const updatePersonalDataLink =
 
 const Index: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ posts }) => {
   const router = useRouter()
+  const { modality } = useModality()
 
   return (
-    <Layout title="Presencial" footerDisabled>
+    <Layout title={modality} footerDisabled>
       <div className={Styles.heroLanding}>
         <div className={Styles.container}>
           <div className={Styles.heroCard}>
