@@ -36,7 +36,7 @@ export default function Header(): JSX.Element {
               </Button>
               <Button
                 starticon={<YoutubeIcon />}
-                onClick={() => router.push(`/inicio?modalidade=${modality}`)}
+                onClick={() => router.push(`/tutoriais?modalidade=${modality}`)}
               >
                 Tutoriais
               </Button>
