@@ -33,6 +33,8 @@ module.exports = {
         'react/react-in-jsx-scope': 'off', // No need to import React when using Next.js
         'jsx-a11y/anchor-is-valid': 'off', // This rule is not compatible with Next.js's <Link /> components
         'jsx-a11y/no-noninteractive-tabindex': 'off',
+        'jsx-a11y/no-noninteractive-element-interactions': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-unused-vars': ['error'], // Why would you want unused vars?
         '@typescript-eslint/explicit-function-return-type': [
