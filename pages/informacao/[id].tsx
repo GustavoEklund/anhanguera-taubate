@@ -69,7 +69,12 @@ export const getStaticProps: GetStaticProps<any | Params> = async ({ params }) =
   const id = params?.id
   const response = await fetch(`http://public.essencialavida.com/data/posts/${id}.json`)
   const post: FullPost = await response.json()
-  return { props: { post } }
+  return {
+    props: {
+      post
+    },
+    revalidate: 3600
+  }
 }
 
 type Props = {
