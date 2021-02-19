@@ -1,6 +1,13 @@
 import { GetStaticProps, NextPage } from 'next'
 import Styles from './styles.module.scss'
 import Layout from '@/components/Layout'
+import Paragraph from '@/pages/informacao/components/Paragraph'
+import Link from '@/pages/informacao/components/Link'
+import Image from '@/pages/informacao/components/Image'
+import Title from '@/pages/informacao/components/Title'
+import Subtitle from '@/pages/informacao/components/Subtitle'
+import Video from '@/pages/informacao/components/Video'
+import List from '@/pages/informacao/components/List'
 
 type Post = {
   id: string
@@ -10,10 +17,15 @@ type Post = {
   link: null | string
 }
 
-interface PostContent {
-  type: 'p' | 'a' | 'img' | 'br' | 'h1' | 'h2' | 'video'
+export type PostContentType = 'p' | 'a' | 'img' | 'br' | 'h1' | 'h2' | 'video' | 'ul' | 'ol'
+
+export interface PostContent {
+  type: PostContentType
+  variant?: string
   title?: string
-  value: string
+  value: string | string[]
+  largeMarginTop?: boolean
+  largeMarginBottom?: boolean
 }
 
 interface FullPost {
@@ -64,7 +76,45 @@ type Props = {
   post: FullPost
 }
 
+function renderElement(post: PostContent): JSX.Element {
+  const stringValue = typeof post.value === 'string' ? post.value : post.value.join(' ')
+  const arrayValue = typeof post.value !== 'string' ? post.value : []
+
+  switch (post.type) {
+    case 'p':
+      return <Paragraph>{stringValue}</Paragraph>
+    case 'a':
+      return <Link href={stringValue}>{post?.title}</Link>
+    case 'img':
+      return <Image src={stringValue} title={post.title} />
+    case 'br':
+      return <br />
+    case 'h1':
+      return <Title>{stringValue}</Title>
+    case 'h2':
+      return <Subtitle>{stringValue}</Subtitle>
+    case 'video':
+      return <Video title={post.title} videoId={stringValue} />
+    case 'ol':
+      return <List type="ol">{arrayValue}</List>
+    case 'ul':
+      return <List type="ul">{arrayValue}</List>
+    default:
+      return <></>
+  }
+}
+
 const Informacao: NextPage<Props> = ({ post }: Props) => {
+  function getMargin(side: 'top' | 'bottom', value: boolean): string {
+    return value
+      ? side === 'top'
+        ? 'largeMarginTop'
+        : 'largeMarginBottom'
+      : side === 'top'
+      ? 'defaultMarginTop'
+      : 'defaultMarginBottom'
+  }
+
   return (
     <Layout title={post.title} footerDisabled>
       <div className={Styles.container}>
@@ -73,31 +123,15 @@ const Informacao: NextPage<Props> = ({ post }: Props) => {
         {post?.mainImage && <img src={post.mainImage} alt={post.title} />}
       </div>
       <div className={Styles.contentContainer}>
-        {post.content.map((i) => (
-          <div key={i.type + String(Math.random())}>
-            {i.type === 'p' && <p>{i.value}</p>}
-            {i.type === 'a' && (
-              <a href={i.value} target="_blank" rel="noreferrer">
-                {i?.title || 'Link'}
-              </a>
-            )}
-            {i.type === 'img' && <img src={i.value} alt={i?.title || 'Imagem'} />}
-            {i.type === 'br' && <br />}
-            {i.type === 'h1' && <h2>{i.value}</h2>}
-            {i.type === 'h2' && <h3>{i.value}</h3>}
-            {i.type === 'video' && (
-              <div className={Styles.video}>
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src={`https://www.youtube.com/embed/${i.value}`}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title={i.title}
-                />
-              </div>
-            )}
+        {post.content.map((postItem) => (
+          <div
+            key={postItem.type + String(Math.random())}
+            className={[
+              Styles[getMargin('top', !!postItem.largeMarginTop)],
+              Styles[getMargin('bottom', !!postItem.largeMarginBottom)]
+            ].join(' ')}
+          >
+            {renderElement(postItem)}
           </div>
         ))}
       </div>

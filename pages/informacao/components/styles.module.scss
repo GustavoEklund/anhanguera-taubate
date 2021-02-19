@@ -1,0 +1,45 @@
+@import "colors.module";
+
+p.paragraph {
+  font-size: 1.3rem;
+  line-height: 2rem;
+}
+
+a.link {
+  color: $primary;
+  font-size: 1.3rem;
+}
+
+img.image {
+  width: 100%;
+}
+
+h2.title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h3.subtitle {
+  font-size: 1.5rem;
+  color: $secondary;
+}
+
+div.video {
+  width: min(648px, 100vw);
+  height: calc(min(648px, 100vw) / 16 * 9);
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+ul.unorderedList,
+ol.orderedList {
+  padding-left: 3rem;
+
+  li {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+}
