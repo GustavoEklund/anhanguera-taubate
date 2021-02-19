@@ -71,7 +71,6 @@ div.modalOverlay {
 
 div.modalOpen {
   opacity: 1;
-  backdrop-filter: saturate(180%) blur(5px);
   pointer-events: unset;
 
   div.modalWrapper {
@@ -81,7 +80,6 @@ div.modalOpen {
 
 div.modalClosed {
   opacity: 0;
-  backdrop-filter: saturate(0%) blur(0);
   pointer-events: none;
 
   div.modalWrapper {
