@@ -51,7 +51,9 @@ export async function getStaticPaths(): Promise<StaticPathsReturn> {
   const presentialPosts = await presentialResponse.json()
   const distancePosts = await distanceResponse.json()
   const posts: Post[] = [...presentialPosts, ...distancePosts]
-  const paths = posts.map((post) => ({ params: { id: String(post.id) } }))
+  const paths = posts
+    .filter((post) => post.link === 'id')
+    .map((post) => ({ params: { id: String(post.id) } }))
   return { paths, fallback: 'blocking' }
 }
 
