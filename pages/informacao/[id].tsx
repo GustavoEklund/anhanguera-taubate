@@ -1,13 +1,7 @@
 import { GetStaticProps, NextPage } from 'next'
 import Styles from './styles.module.scss'
 import Layout from '@/components/Layout'
-import Paragraph from '@/pages/informacao/components/Paragraph'
-import Link from '@/pages/informacao/components/Link'
-import Image from '@/pages/informacao/components/Image'
-import Title from '@/pages/informacao/components/Title'
-import Subtitle from '@/pages/informacao/components/Subtitle'
-import Video from '@/pages/informacao/components/Video'
-import List from '@/pages/informacao/components/List'
+import { Paragraph, Link, Image, Title, Subtitle, Video, List } from '@/pages/informacao/components'
 
 type Post = {
   id: string
