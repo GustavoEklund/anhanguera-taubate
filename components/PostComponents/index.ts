@@ -1,0 +1,7 @@
+export { default as Image } from 'components/PostComponents/Image'
+export { default as Link } from 'components/PostComponents/Link'
+export { default as List } from 'components/PostComponents/List'
+export { default as Paragraph } from 'components/PostComponents/Paragraph'
+export { default as Subtitle } from 'components/PostComponents/Subtitle'
+export { default as Title } from 'components/PostComponents/Title'
+export { default as Video } from 'components/PostComponents/Video'

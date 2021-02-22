@@ -1,7 +1,0 @@
-export { default as Image } from './Image'
-export { default as Link } from './Link'
-export { default as List } from './List'
-export { default as Paragraph } from './Paragraph'
-export { default as Subtitle } from './Subtitle'
-export { default as Title } from './Title'
-export { default as Video } from './Video'
