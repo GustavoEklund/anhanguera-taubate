@@ -35,6 +35,7 @@ export default function Header(): JSX.Element {
                 Importante
               </Button>
               <Button
+                className={router.pathname === '/tutoriais' ? Styles.buttonActive : ''}
                 starticon={<YoutubeIcon />}
                 onClick={() => router.push(`/tutoriais?modalidade=${modality}`)}
               >
