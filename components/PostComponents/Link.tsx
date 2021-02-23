@@ -7,7 +7,12 @@ type LinkProps = {
 
 export default function Link({ href, children }: LinkProps): JSX.Element {
   return (
-    <a href={href} className={Styles.link} target="_blank" rel="noreferrer">
+    <a
+      href={href}
+      className={Styles.link}
+      target={href.charAt(0) === '/' ? '_self' : '_blank'}
+      rel="noreferrer"
+    >
       {children}
     </a>
   )
