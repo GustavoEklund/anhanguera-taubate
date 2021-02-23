@@ -1,0 +1,71 @@
+@import "colors.module";
+
+div.dropDown {
+  width: 100%;
+  position: relative;
+  border-bottom: $borderDark;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-top: 3rem;
+  transition: $defaultAnimation;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    right: 1.5rem;
+    top: 1.25rem;
+    border-bottom: 2px solid rgba($secondary, 0.4);
+    border-left: 2px solid rgba($secondary, 0.4);
+    transition: $defaultAnimation;
+  }
+
+  span {
+    position: absolute;
+    font-weight: bold;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    cursor: pointer;
+    transition: $defaultAnimation;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: rgba($secondary, 0.1);
+    }
+  }
+
+  a {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding-left: 1.5rem;
+    transition: $defaultAnimation;
+    white-space: nowrap;
+    text-decoration: none;
+
+    &:hover {
+      background-color: rgba($secondary, 0.1);
+    }
+  }
+}
+
+div.dropDownOpen {
+  &::after {
+    transform: rotate(135deg);
+  }
+}
+
+div.dropDownClosed {
+  &::after {
+    transform: rotate(315deg);
+  }
+}
