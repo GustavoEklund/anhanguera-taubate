@@ -6,8 +6,7 @@ div.dropDown {
   border-bottom: $borderDark;
   display: flex;
   flex-direction: column;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden;
   padding-top: 3rem;
   transition: $defaultAnimation;
 
