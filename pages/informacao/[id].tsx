@@ -1,34 +1,8 @@
 import { GetStaticProps, NextPage } from 'next'
 import Styles from './styles.module.scss'
 import Layout from '@/components/Layout'
+import { Post, PostContent, PostItem } from '@/protocols/post'
 import { Paragraph, Link, Image, Title, Subtitle, Video, List } from '@/components/PostComponents'
-
-type Post = {
-  id: string
-  title: string
-  subtitle: string
-  mainImage: string
-  link: null | string
-}
-
-export type PostContentType = 'p' | 'a' | 'img' | 'br' | 'h1' | 'h2' | 'video' | 'ul' | 'ol'
-
-export interface PostContent {
-  type: PostContentType
-  variant?: string
-  title?: string
-  value: string | string[]
-  largeMarginTop?: boolean
-  largeMarginBottom?: boolean
-}
-
-interface FullPost {
-  id: string
-  title: string
-  subtitle?: string
-  mainImage?: string
-  content: PostContent[]
-}
 
 interface PathParams {
   id: string
@@ -64,7 +38,7 @@ type Params = {
 export const getStaticProps: GetStaticProps<any | Params> = async ({ params }) => {
   const id = params?.id
   const response = await fetch(`http://public.essencialavida.com/data/posts/${id}.json`)
-  const post: FullPost = await response.json()
+  const post: PostItem = await response.json()
   return {
     props: {
       post
@@ -74,7 +48,7 @@ export const getStaticProps: GetStaticProps<any | Params> = async ({ params }) =
 }
 
 type Props = {
-  post: FullPost
+  post: PostItem
 }
 
 function renderElement(post: PostContent): JSX.Element {
