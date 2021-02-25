@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import { GetStaticProps, NextPage } from 'next'
 import gfm from 'remark-gfm'
+import externalLinks from 'remark-external-links'
 import ReactMarkdown from 'react-markdown'
 import Styles from './styles.module.scss'
 import Layout from '@/components/Layout'
@@ -59,6 +60,17 @@ const Tutoriais: NextPage<Props> = ({ tutorial }: Props) => {
                 01.2 - Primeiros passos no Portal do Aluno
               </a>
             </AccordionDropDown>
+            <AccordionDropDown title="02 - Aulas online ao vivo">
+              {[
+                <a
+                  key={1}
+                  href="#02-1-como-assistir-aulas-online-ao-vivo"
+                  className={Styles.dropDownItem}
+                >
+                  02.1 - Como assistir aulas online ao vivo
+                </a>
+              ]}
+            </AccordionDropDown>
           </aside>
           <div className={Styles.containerWrapper}>
             <div className={Styles.container}>
@@ -66,9 +78,20 @@ const Tutoriais: NextPage<Props> = ({ tutorial }: Props) => {
                 <h1>Tutoriais presencial</h1>
               </div>
             </div>
+            <div className={Styles.container} style={{ marginTop: 0 }}>
+              <div className={Styles.tutorial}>
+                <iframe
+                  src="https://www.youtube.com/embed/XKFQJgYc_gk"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+                <figcaption>01.1 - Acesso ao portal do aluno</figcaption>
+              </div>
+            </div>
             <ReactMarkdown
               className={Styles.markdownContent}
-              plugins={[gfm]}
+              plugins={[gfm, [externalLinks, { target: '_blank', rel: 'noreferrer' }]]}
               renderers={{ heading: HeadingRenderer }}
             >
               {tutorial}
