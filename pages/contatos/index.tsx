@@ -75,8 +75,7 @@ const Contatos: NextPage = () => {
         <div className={Styles.container} style={{ paddingBottom: '1rem' }} id="coordenadores">
           <div className={Styles.titleWrapper}>
             <h1>
-              Contatos dos tutores do semi-presencial e do coordenador geral do polo da Anhanguera
-              Taubaté
+              Contatos dos tutores do semi-presencial e do coordenador do polo da Anhanguera Taubaté
             </h1>
           </div>
           <div className={Styles.generalWrapper}>
