@@ -3,6 +3,7 @@
 .markdownContent {
   max-width: 648px;
   margin: 0 auto;
+  padding: 1rem;
 
   :target::before {
     content: '';
