@@ -153,27 +153,27 @@ const Contatos: NextPage = () => {
             contact="ana.p.assis@educadores.net.br"
           />
           <Contact
-            contactTitle="Serviço Social"
+            contactTitle="Serviço Social (Veteranos)"
             subtitle="Ana Regina Gama"
             contact="ana.gama@educadores.net.br"
           />
           <Contact
-            contactTitle={['NSA Núcleo da Saúde', 'Educação Física']}
+            contactTitle="NSA Núcleo da Saúde (Calouros)"
             subtitle="Andressa Amorelli Barbosa"
             contact="andressa.a.barbosa@educadores.net.br"
           />
           <Contact
-            contactTitle="Engenharias"
+            contactTitle="Engenharias (Veteranos e Calouros)"
             subtitle="Aureli Eugenio da Silva"
             contact="aureli.silva@educadores.net.br"
           />
           <Contact
-            contactTitle="Serviço Social"
+            contactTitle="Serviço Social (Calouros)"
             subtitle="Diuna Martins Ragasine"
             contact="diuna.ragasine@educadores.net.br"
           />
           <Contact
-            contactTitle="Engenharias"
+            contactTitle="Engenharias (Veteranos)"
             subtitle="Kleber dos Santos"
             contact="k.santos@educadores.net.br"
           />
@@ -193,12 +193,16 @@ const Contatos: NextPage = () => {
             contact="regiane.f.souza@educadores.net.br"
           />
           <Contact
-            contactTitle={['Tecnólogos', 'Administração e contábeis']}
+            contactTitle={[
+              'Tecnólogos',
+              'Administração e contábeis',
+              'Análise e Desenvolvimento de Sistemas'
+            ]}
             subtitle="Sandro Bueno de Paula"
             contact="sandro.paula@educadores.net.br"
           />
           <Contact
-            contactTitle={['Nutrição', 'NSA Núcleo de Saúde (Enfermagem)']}
+            contactTitle={['Nutrição (Veteranos)', 'NSA Núcleo de Saúde (Veteranos)']}
             subtitle="Tabata Bortman"
             contact="tabata.bortman@educadores.net.br"
             style={{ marginBottom: 0 }}
