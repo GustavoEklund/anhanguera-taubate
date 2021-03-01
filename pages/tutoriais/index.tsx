@@ -61,15 +61,15 @@ const Tutoriais: NextPage<Props> = ({ tutorial }: Props) => {
               </a>
             </AccordionDropDown>
             <AccordionDropDown title="02 - Aulas online ao vivo">
-              {[
-                <a
-                  key={1}
-                  href="#02-1-como-assistir-aulas-online-ao-vivo"
-                  className={Styles.dropDownItem}
-                >
-                  02.1 - Como assistir aulas online ao vivo
-                </a>
-              ]}
+              <a href="#02-1-como-assistir-aulas-online-ao-vivo" className={Styles.dropDownItem}>
+                02.1 - Como assistir aulas online ao vivo
+              </a>
+              <a
+                href="#02-2-solu--es-de-problemas-em-aulas-online-ao-vivo"
+                className={Styles.dropDownItem}
+              >
+                02.2 - Soluções de problemas em aulas online ao vivo
+              </a>
             </AccordionDropDown>
           </aside>
           <div className={Styles.containerWrapper}>
@@ -85,6 +85,7 @@ const Tutoriais: NextPage<Props> = ({ tutorial }: Props) => {
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
+                  title="01.1 - Acesso ao portal do aluno"
                 />
                 <figcaption>01.1 - Acesso ao portal do aluno</figcaption>
               </div>
