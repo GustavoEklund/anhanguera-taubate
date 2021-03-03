@@ -31,6 +31,10 @@ export default function Layout({
           name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, shrink-to-fit=no"
         />
+        <meta
+          name="google-site-verification"
+          content="C_zEX_8FLw48MoaQCgVv0ZolMXUNS37E1R4beS4JPCs"
+        />
         <title>{['Anhanguera Taubaté', title].join(' - ')}</title>
 
         <meta name="theme-color" content="#F26724" />
