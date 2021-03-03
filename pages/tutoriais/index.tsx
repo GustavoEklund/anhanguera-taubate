@@ -52,23 +52,42 @@ const Tutoriais: NextPage<Props> = ({ tutorial }: Props) => {
       {modality === 'presencial' && (
         <div className={Styles.tutorialsWrapper}>
           <aside className={Styles.sideMenu}>
-            <AccordionDropDown startOpen title="01 - Primeiros passos">
+            <AccordionDropDown startOpen title="01 — Primeiros passos">
               <a href="#01-1-acesso-ao-portal-do-aluno" className={Styles.dropDownItem}>
-                01.1 - Acesso ao portal do aluno
+                01.1 — Acesso ao portal do aluno
               </a>
               <a href="#01-2-primeiros-passos-no-portal-do-aluno" className={Styles.dropDownItem}>
-                01.2 - Primeiros passos no Portal do Aluno
+                01.2 — Primeiros passos no Portal do Aluno
+              </a>
+              <a
+                href="#01-3-como-acessar-o-ambiente-virtual-de-aprendizagem--ava-"
+                className={Styles.dropDownItem}
+              >
+                01.3 — Como acessar o AVA (Ambiente Virtual de Aprendizagem)
               </a>
             </AccordionDropDown>
-            <AccordionDropDown title="02 - Aulas online ao vivo">
-              <a href="#02-1-como-assistir-aulas-online-ao-vivo" className={Styles.dropDownItem}>
-                02.1 - Como assistir aulas online ao vivo
+            <AccordionDropDown startOpen title="02 — Aulas online ao vivo">
+              {[
+                <a href="#02-1-como-assistir-aulas-online-ao-vivo" className={Styles.dropDownItem}>
+                  02.1 - Como assistir aulas online ao vivo
+                </a>
+              ]}
+            </AccordionDropDown>
+            <AccordionDropDown startOpen title="03 — Problemas e Soluções">
+              <a
+                href="#03-1-problemas-ao-alterar-a-senha-no-portal-do-aluno"
+                className={Styles.dropDownItem}
+              >
+                03.1 — Problemas ao alterar a senha no Portal do Aluno
+              </a>
+              <a href="#03-2-problemas-de-acesso-ao-ava" className={Styles.dropDownItem}>
+                03.2 — Problemas de acesso ao AVA
               </a>
               <a
                 href="#02-2-solu--es-de-problemas-em-aulas-online-ao-vivo"
                 className={Styles.dropDownItem}
               >
-                02.2 - Soluções de problemas em aulas online ao vivo
+                03.3 — Soluções de problemas em aulas online ao vivo
               </a>
             </AccordionDropDown>
           </aside>
@@ -79,15 +98,29 @@ const Tutoriais: NextPage<Props> = ({ tutorial }: Props) => {
               </div>
             </div>
             <div className={Styles.container} style={{ marginTop: 0 }}>
-              <div className={Styles.tutorial}>
-                <iframe
-                  src="https://www.youtube.com/embed/XKFQJgYc_gk"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  title="01.1 - Acesso ao portal do aluno"
-                />
-                <figcaption>01.1 - Acesso ao portal do aluno</figcaption>
+              <div style={{ display: 'flex', flexWrap: 'wrap', margin: '0 auto' }}>
+                <div className={Styles.tutorial}>
+                  <iframe
+                    src="https://www.youtube.com/embed/XKFQJgYc_gk"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="01.1 - Acesso ao portal do aluno"
+                    id="video_acesso_ao_portal_do_aluno"
+                  />
+                  <figcaption>01.1 - Acesso ao portal do aluno</figcaption>
+                </div>
+                <div className={Styles.tutorial}>
+                  <iframe
+                    src="https://www.youtube.com/embed/hZG1wFJ2sV8"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="01.3 - Acesso ao AVA"
+                    id="video_acesso_ao_ava"
+                  />
+                  <figcaption>01.3 - Acesso ao AVA</figcaption>
+                </div>
               </div>
             </div>
             <ReactMarkdown

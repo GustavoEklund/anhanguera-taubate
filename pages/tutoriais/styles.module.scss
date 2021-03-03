@@ -48,12 +48,12 @@
     outline: 0;
   }
 
-  a[href^="#"] {
-    font-size: inherit;
-    font-weight: inherit;
-    color: inherit;
-    text-decoration: inherit;
-  }
+  //a[href^="#"] {
+  //  font-size: inherit;
+  //  font-weight: inherit;
+  //  color: inherit;
+  //  text-decoration: inherit;
+  //}
 
   ::-moz-selection {
     background: $primaryLight;
