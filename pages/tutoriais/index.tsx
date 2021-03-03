@@ -84,7 +84,7 @@ const Tutoriais: NextPage<Props> = ({ tutorial }: Props) => {
                 03.2 — Problemas de acesso ao AVA
               </a>
               <a
-                href="#02-2-solu--es-de-problemas-em-aulas-online-ao-vivo"
+                href="#03-3-solu--es-de-problemas-em-aulas-online-ao-vivo"
                 className={Styles.dropDownItem}
               >
                 03.3 — Soluções de problemas em aulas online ao vivo
