@@ -68,7 +68,11 @@ const Tutoriais: NextPage<Props> = ({ tutorial }: Props) => {
             </AccordionDropDown>
             <AccordionDropDown startOpen title="02 — Aulas online ao vivo">
               {[
-                <a href="#02-1-como-assistir-aulas-online-ao-vivo" className={Styles.dropDownItem}>
+                <a
+                  key={1}
+                  href="#02-1-como-assistir-aulas-online-ao-vivo"
+                  className={Styles.dropDownItem}
+                >
                   02.1 - Como assistir aulas online ao vivo
                 </a>
               ]}
