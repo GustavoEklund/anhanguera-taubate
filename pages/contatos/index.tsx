@@ -226,10 +226,10 @@ const Contatos: NextPage = () => {
           contactTitle="Secretaria"
           subtitle={[
             'WhatsApp: (12) 3634-4126',
-            'segunda a quinta-feira - 08h30 às 20h30',
-            'sexta-feira - 08h30 às 20h00'
+            'segunda a quinta-feira - 08h30 às 19h30',
+            'sexta-feira - 08h30 às 19h00'
           ]}
-          subtitleLink="https://wa.me/551236344126"
+          subtitleLink={['https://wa.me/551236344126', '', '']}
           contact="taubate@anhanguera.com"
         />
         <Contact
@@ -240,19 +240,19 @@ const Contatos: NextPage = () => {
         />
         <Contact
           contactTitle="Acordos e negociações"
-          subtitle={['WhatsApp - (12) 3634-4153 - Amanda', 'WhatsApp - (12) 3625-4950 - Jhenifer']}
+          subtitle={['WhatsApp: (12) 3634-4153 - Amanda', 'WhatsApp: (12) 3625-4950 - Jhenifer']}
           subtitleLink={['https://wa.me/551236344153', 'https://wa.me/551236254950']}
           contact={[]}
         />
         <Contact
           contactTitle="Central de estágio"
-          subtitle="WhatsApp - (12) 3625-4939 - Lucinéia"
+          subtitle="WhatsApp: (12) 3625-4939 - Lucinéia"
           subtitleLink="https://wa.me/551236254939"
           contact={[]}
         />
         <Contact
           contactTitle="Informática"
-          subtitle="WhatsApp - (12) 3634-4146"
+          subtitle="WhatsApp: (12) 3634-4146"
           subtitleLink="https://wa.me/551236344146"
           contact={[]}
         />
