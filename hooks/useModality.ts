@@ -14,12 +14,12 @@ export default function useModality(): ModalityReturn {
   const [modality, setModality] = useState<Modality>('presencial')
 
   useEffect(() => {
-    setModality(router.query?.modalidade === 'presencial' ? 'presencial' : 'distancia')
+    setModality(router.query?.modalidade === 'distancia' ? 'distancia' : 'presencial')
   }, [router])
 
   async function handleToggleModality(): Promise<void> {
     await router.push(
-      `${router.pathname}?modalidade=${modality === 'presencial' ? 'distancia' : 'presencial'}`
+      `${router.pathname}?modalidade=${modality === 'distancia' ? 'presencial' : 'distancia'}`
     )
   }
 
