@@ -30,13 +30,15 @@ const Contatos: NextPage = () => {
             photo="artur.jpg"
             contactTitle={['Ciência da Computação', 'Engenharia de Produção Mecânica']}
             subtitle="Artur Pereira"
-            contact="artur.pereira@educadores.net.br"
+            contact={['artur.pereira@educadores.net.br', '(12) 3634-4123']}
+            contactLink={['', 'https://wa.me/551236344123']}
           />
           <Contact
             photo="fernanda.jpg"
             contactTitle="Enfermagem"
             subtitle="Fernanda Ingrid"
-            contact="fernanda.toledo@educadores.net.br"
+            contact={['fernanda.toledo@educadores.net.br', '(12) 98195-3709']}
+            contactLink={['', 'https://wa.me/5512981953709']}
           />
           <Contact
             photo="gustavo.jpg"
@@ -54,13 +56,21 @@ const Contatos: NextPage = () => {
             photo="mirthis.jpg"
             contactTitle={['Psicologia', 'Pedagogia']}
             subtitle="Mirthis Czubka"
-            contact="mirthis.angelo@educadores.net.br"
+            contact={['mirthis.angelo@educadores.net.br', '(12) 99136-0170']}
+            contactLink={['', 'https://wa.me/5512991360170']}
           />
           <Contact
             photo="ricardo.jpg"
-            contactTitle={['Administração', 'Ciências Contábeis']}
+            contactTitle={['Administração', 'Ciências Contábeis', 'Recursos Humanos']}
             subtitle="Ricardo Saad"
             contact="ricardo.saad@educadores.net.br"
+          />
+          <Contact
+            photo="patricia.jpg"
+            contactTitle="Odontologia"
+            subtitle="Patricia Capellato"
+            contact={['patricia.capellato@educadores.net.br', '(12) 98156-3426']}
+            contactLink={['', 'https://wa.me/5512981563426']}
           />
           <Contact
             photo="vitor.jpg"
@@ -215,35 +225,35 @@ const Contatos: NextPage = () => {
         <Contact
           contactTitle="Secretaria"
           subtitle={[
-            'Presencialmente:',
+            'WhatsApp: (12) 3634-4126',
             'segunda a quinta-feira - 08h30 às 20h30',
-            'sexta-feira - 08h30 às 20h00',
-            ''
+            'sexta-feira - 08h30 às 20h00'
           ]}
+          subtitleLink="https://wa.me/551236344126"
           contact="taubate@anhanguera.com"
         />
         <Contact
           contactTitle="Relacionamento com o aluno"
           subtitle="WhatsApp: (12) 3625-4951 - Jully"
-          link="https://wa.me/551236254951"
+          subtitleLink="https://wa.me/551236254951"
           contact={[]}
         />
         <Contact
           contactTitle="Acordos e negociações"
           subtitle={['WhatsApp - (12) 3634-4153 - Amanda', 'WhatsApp - (12) 3625-4950 - Jhenifer']}
-          link={['https://wa.me/551236344153', 'https://wa.me/551236254950']}
+          subtitleLink={['https://wa.me/551236344153', 'https://wa.me/551236254950']}
           contact={[]}
         />
         <Contact
           contactTitle="Central de estágio"
           subtitle="WhatsApp - (12) 3625-4939 - Lucinéia"
-          link="https://wa.me/551236254939"
+          subtitleLink="https://wa.me/551236254939"
           contact={[]}
         />
         <Contact
           contactTitle="Informática"
           subtitle="WhatsApp - (12) 3634-4146"
-          link="https://wa.me/551236344146"
+          subtitleLink="https://wa.me/551236344146"
           contact={[]}
         />
       </div>

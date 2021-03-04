@@ -35,9 +35,13 @@ div.contactWrapper {
       color: $primary;
       font-size: 1.2rem;
       font-weight: bold;
-    }
 
-    a { color: $primary; }
+      a {
+        color: $primary;
+        font-size: inherit;
+        font-weight: inherit;
+      }
+    }
 
     p {
       > span {
@@ -46,13 +50,13 @@ div.contactWrapper {
 
         > strong {
           color: $secondary;
-        }
-      }
 
-      > a {
-        color: $primary;
-        font-size: 1.2rem;
-        font-weight: bold;
+          a {
+            color: $primary;
+            font-size: inherit;
+            font-weight: inherit;
+          }
+        }
       }
     }
   }

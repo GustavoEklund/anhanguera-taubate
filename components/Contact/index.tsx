@@ -2,27 +2,56 @@ import React from 'react'
 import Image from 'next/image'
 import Styles from './styles.module.scss'
 
+type StringArray = string | string[]
+
 interface Props
   extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   photo?: string
-  contactTitle: string | string[]
-  subtitle: string | string[]
-  contact: string | string[]
-  link?: string | string[]
+  contactTitle: StringArray
+  subtitle: StringArray
+  subtitleLink?: StringArray
+  contact: StringArray
+  contactLink?: StringArray
 }
 
 export default function Contact(props: Props): JSX.Element {
-  const { photo, contactTitle, subtitle, link, contact, ...otherProps } = props
+  const { photo, contactTitle, subtitle, subtitleLink, contact, contactLink, ...otherProps } = props
 
-  function getSubtitle(sub: string | string[]): JSX.Element[] | string {
-    return typeof sub === 'string'
-      ? sub
-      : sub.map((nameSlice: string) => (
-          <React.Fragment key={nameSlice}>
-            {nameSlice}
+  function getLink(text: JSX.Element, link: string): JSX.Element {
+    return link ? (
+      <a href={link} target="_blank" rel="noreferrer">
+        {text}
+      </a>
+    ) : (
+      <>{text}</>
+    )
+  }
+
+  function getArrayOfLinks(titles: JSX.Element[], links: StringArray): JSX.Element[] {
+    return typeof links === 'string'
+      ? [getLink(titles[0], links)]
+      : links.map((link: string, key: number) => getLink(titles[key] || <></>, link))
+  }
+
+  function stringsToElementArray(strings: string | string[]): JSX.Element[] {
+    return typeof strings === 'string'
+      ? [
+          <React.Fragment key={0}>
+            {strings}
+            <br />
+          </React.Fragment>
+        ]
+      : strings.map((subtitleSlice: string) => (
+          <React.Fragment key={subtitleSlice}>
+            {subtitleSlice}
             <br />
           </React.Fragment>
         ))
+  }
+
+  function dynamicAddLink(titles: StringArray, links?: StringArray): JSX.Element[] {
+    const elementArray = stringsToElementArray(titles)
+    return links ? getArrayOfLinks(elementArray, links || '') : elementArray
   }
 
   return (
@@ -36,43 +65,12 @@ export default function Contact(props: Props): JSX.Element {
         />
       </div>
       <div className={Styles.contactDetails}>
-        <h2>
-          {typeof contactTitle === 'string'
-            ? contactTitle
-            : contactTitle.map((title: string) => (
-                <React.Fragment key={title}>
-                  {title}
-                  <br />
-                </React.Fragment>
-              ))}
-        </h2>
+        <h2>{stringsToElementArray(contactTitle)}</h2>
         <p>
-          {link ? (
-            typeof link === 'string' ? (
-              <a href={link} target="_blank" rel="noreferrer">
-                {getSubtitle(subtitle)}
-              </a>
-            ) : (
-              link?.map((linkSlice: string, key: number) => (
-                <a href={linkSlice} key={linkSlice} target="_blank" rel="noreferrer">
-                  {getSubtitle(subtitle)[key]}
-                </a>
-              ))
-            )
-          ) : (
-            <strong>{getSubtitle(subtitle)}</strong>
-          )}
+          <strong>{dynamicAddLink(subtitle, subtitleLink)}</strong>
         </p>
-        <p>
-          {typeof contact === 'string'
-            ? contact
-            : contact.map((contactSlice: string) => (
-                <React.Fragment key={contactSlice}>
-                  {contactSlice}
-                  <br />
-                </React.Fragment>
-              ))}
-        </p>
+        <br />
+        <p>{dynamicAddLink(contact, contactLink)}</p>
       </div>
     </div>
   )
