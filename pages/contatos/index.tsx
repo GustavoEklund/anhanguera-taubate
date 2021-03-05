@@ -257,6 +257,12 @@ const Contatos: NextPage = () => {
           subtitleLink="https://wa.me/551236344146"
           contact={[]}
         />
+        <Contact
+          contactTitle="Agendamento das clínicas"
+          subtitle="WhatsApp: (12) 3634-4106"
+          subtitleLink="https://wa.me/551236344106"
+          contact={[]}
+        />
       </div>
     </Layout>
   )
