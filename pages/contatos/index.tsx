@@ -24,20 +24,21 @@ const Contatos: NextPage = () => {
             photo="ana.jpg"
             contactTitle={['Publicidade e Propaganda', 'Arquitetura, Engenharia Civil']}
             subtitle="Ana Flávia"
-            contact="ana.afonso@educadores.net.br"
+            contact={['ana.afonso@educadores.net.br', 'WhatsApp: (12) 98144-7548']}
+            contactLink={['', 'https://wa.me/5512981447548']}
           />
           <Contact
             photo="artur.jpg"
             contactTitle={['Ciência da Computação', 'Engenharia de Produção Mecânica']}
             subtitle="Artur Pereira"
-            contact={['artur.pereira@educadores.net.br', '(12) 3634-4123']}
+            contact={['artur.pereira@educadores.net.br', 'WhatsApp: (12) 3634-4123']}
             contactLink={['', 'https://wa.me/551236344123']}
           />
           <Contact
             photo="fernanda.jpg"
             contactTitle="Enfermagem"
             subtitle="Fernanda Ingrid"
-            contact={['fernanda.toledo@educadores.net.br', '(12) 98195-3709']}
+            contact={['fernanda.toledo@educadores.net.br', 'WhatsApp: (12) 98195-3709']}
             contactLink={['', 'https://wa.me/5512981953709']}
           />
           <Contact
@@ -56,7 +57,7 @@ const Contatos: NextPage = () => {
             photo="mirthis.jpg"
             contactTitle={['Psicologia', 'Pedagogia']}
             subtitle="Mirthis Czubka"
-            contact={['mirthis.angelo@educadores.net.br', '(12) 99136-0170']}
+            contact={['mirthis.angelo@educadores.net.br', 'WhatsApp: (12) 99136-0170']}
             contactLink={['', 'https://wa.me/5512991360170']}
           />
           <Contact
@@ -69,7 +70,7 @@ const Contatos: NextPage = () => {
             photo="patricia.jpg"
             contactTitle="Odontologia"
             subtitle="Patricia Capellato"
-            contact={['patricia.capellato@educadores.net.br', '(12) 98156-3426']}
+            contact={['patricia.capellato@educadores.net.br', 'WhatsApp: (12) 98156-3426']}
             contactLink={['', 'https://wa.me/5512981563426']}
           />
           <Contact
