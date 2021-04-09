@@ -91,60 +91,25 @@ const Contatos: NextPage = () => {
           </div>
           <div className={Styles.generalWrapper}>
             <div className={Styles.generalItem}>
-              <h2>Dúvidas gerais do portal e orientação de estágio dos cursos:</h2>
-              <ul>
-                <li>Nutrição</li>
-                <li>Pedagogia</li>
-                <li>Serviço Social</li>
-              </ul>
+              <h2>Dúvidas acadêmicas</h2>
+              <br/>
               <p>
-                Atendimento sempre das <span>17h30</span> às <span>19h00</span>
+                Atendimento sempre das <span>17h30</span> às <span>19h00</span> de segunda a quinta
               </p>
               <p>
                 <strong>Profª Ana Regina</strong>
               </p>
               <div className={Styles.linkGroup}>
                 <a href="https://teams.microsoft.com/l/meetup-join/19%3a103196549bdf4a98bb1c34341c13f322%40thread.tacv2/1612487280195?context=%7b%22Tid%22%3a%22a50e7b76-8ea5-492c-bf17-97d652fc3ce9%22%2c%22Oid%22%3a%228935cd14-96d9-4c9b-9df0-059be8087635%22%7d">
-                  Link da segunda-feira (Microsoft Teams)
+                  Link (Microsoft Teams)
                 </a>
-                <a href="https://teams.microsoft.com/l/meetup-join/19%3a103196549bdf4a98bb1c34341c13f322%40thread.tacv2/1612487801476?context=%7b%22Tid%22%3a%22a50e7b76-8ea5-492c-bf17-97d652fc3ce9%22%2c%22Oid%22%3a%228935cd14-96d9-4c9b-9df0-059be8087635%22%7d">
-                  Link da terça-feira (Microsoft Teams)
-                </a>
+                <br/>
+                <br/>
+                <p>
+                  *** Atendimento presencialmente quarta e quinta das <span>18h00</span> às
+                  <span> 19h00</span> mediante agendamento
+                </p>
               </div>
-            </div>
-            <div className={Styles.generalItem}>
-              <h2>Dúvidas acadêmicas</h2>
-              <p>
-                Atendimento sempre das <span>17h30</span> às <span>19h00</span>
-              </p>
-              <div className={Styles.linkGroup}>
-                <a
-                  href="https://teams.microsoft.com/l/meetup-join/19%3aac75d435e4b0446aaade16661c3491ef%40thread.tacv2/1612487920762?context=%7b%22Tid%22%3a%22a50e7b76-8ea5-492c-bf17-97d652fc3ce9%22%2c%22Oid%22%3a%228935cd14-96d9-4c9b-9df0-059be8087635%22%7d"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Link da quarta-feira (Microsoft Teams)
-                </a>
-                <a
-                  href="https://teams.microsoft.com/l/meetup-join/19%3aac75d435e4b0446aaade16661c3491ef%40thread.tacv2/1612488053068?context=%7b%22Tid%22%3a%22a50e7b76-8ea5-492c-bf17-97d652fc3ce9%22%2c%22Oid%22%3a%228935cd14-96d9-4c9b-9df0-059be8087635%22%7d"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Link da quinta-feira (Microsoft Teams)
-                </a>
-              </div>
-            </div>
-            <div className={Styles.generalItem}>
-              <Contact
-                contactTitle={['Coordenador geral do polo']}
-                subtitle="Profº Edner"
-                contact=""
-                style={{ width: '100%' }}
-              />
-              <p>
-                Atendimento presencialmente quarta e quinta das <span>18h00</span> às
-                <span> 19h00</span>
-              </p>
             </div>
           </div>
           <Contact
@@ -159,7 +124,7 @@ const Contatos: NextPage = () => {
           />
           <Contact
             contactTitle="Educação Física"
-            subtitle="Paula Assis"
+            subtitle="Ana Paula"
             contact="ana.p.assis@anhanguera.com"
           />
           <Contact
@@ -241,8 +206,8 @@ const Contatos: NextPage = () => {
         />
         <Contact
           contactTitle="Acordos e negociações"
-          subtitle={['WhatsApp: (12) 3634-4153 - Amanda', 'WhatsApp: (12) 3625-4950 - Jhenifer']}
-          subtitleLink={['https://wa.me/551236344153', 'https://wa.me/551236254950']}
+          subtitle={['WhatsApp: (12) 3634-4135 - Amanda', 'WhatsApp: (12) 3625-4950 - Jhenifer']}
+          subtitleLink={['https://wa.me/551236344135', 'https://wa.me/551236254950']}
           contact={[]}
         />
         <Contact
@@ -261,6 +226,12 @@ const Contatos: NextPage = () => {
           contactTitle="Agendamento das clínicas"
           subtitle="WhatsApp: (12) 3634-4106"
           subtitleLink="https://wa.me/551236344106"
+          contact={[]}
+        />
+        <Contact
+          contactTitle="Biblioteca"
+          subtitle="WhatsApp: (12) 3634-4166"
+          subtitleLink="https://wa.me/551236344166"
           contact={[]}
         />
       </div>
