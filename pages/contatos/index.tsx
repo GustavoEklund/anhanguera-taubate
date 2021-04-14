@@ -97,6 +97,7 @@ const Contatos: NextPage = () => {
                 Atendimento sempre das <span>17h30</span> às <span>19h00</span> de segunda a quinta
               </p>
               <p>
+                <strong>Coordenador Edner Silva</strong><br/>
                 <strong>Profª Ana Regina</strong>
               </p>
               <div className={Styles.linkGroup}>
@@ -188,6 +189,12 @@ const Contatos: NextPage = () => {
         <div className={Styles.titleWrapper}>
           <h1>Contatos gerais Anhanguera Taubaté</h1>
         </div>
+        <Contact
+          contactTitle="Central de Relacionamento com Aluno (CRA)"
+          subtitle={['Telefone: 3003-4030', 'segunda a sexta-feira - 09h00 às 21h00']}
+          subtitleLink=""
+          contact=""
+        />
         <Contact
           contactTitle="Secretaria"
           subtitle={[
