@@ -31,8 +31,8 @@ export const getServerSideProps: GetServerSideProps<any | QueryParams> = async (
 }
 
 const updatePersonalDataLink =
-  'https://forms.office.com/Pages/ResponsePage.aspx?id=dnsOpaWOLEm_F5fWUvw86aDgUwsoAJ1NljZS7R7VIdNUMlFCWlBGWEk2WVYwTU0wRktMNUpYSzNSTy4u'
-
+  //'https://forms.office.com/Pages/ResponsePage.aspx?id=dnsOpaWOLEm_F5fWUvw86aDgUwsoAJ1NljZS7R7VIdNUMlFCWlBGWEk2WVYwTU0wRktMNUpYSzNSTy4u'
+  'https://docs.google.com/spreadsheets/d/1vf5BaxEM_VQ2WEsShacYw9xL_vwuO10vw2bWBbDLpMU/edit?usp=sharing'
 const Index: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ posts }) => {
   const router = useRouter()
   const { modality } = useModality()
@@ -43,12 +43,15 @@ const Index: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = 
         <div className={Styles.container}>
           <div className={Styles.heroCard}>
             <h1>Fique Atento</h1>
-            <h2>Atualize seus dados</h2>
+            <h2>Avaliação Proficiência</h2>
             <p>
-              <strong>Evite problemas, informe seus dados para atualização.</strong>
+              <strong>A partir do dia 17/05 até o dia 21/05.</strong>
+              <br />
+              <br />
+              <strong>Confira a listagem dos alunos elegíveis a realizar a avaliação de proficiência.</strong>
             </p>
             <Button variant="contained" onClick={() => window.open(updatePersonalDataLink)}>
-              Atualize
+              Alunos Elegíveis
             </Button>
           </div>
         </div>
