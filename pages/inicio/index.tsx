@@ -3,11 +3,11 @@ import { useRouter } from 'next/router'
 import Styles from './styles.module.scss'
 import Layout from '@/components/Layout'
 import HomeHeroLandingImage from '@/components/HomeHeroLandingImage'
-import Button from '@/components/Button'
-import useModality from '@/hooks/useModality'
+// import Button from '@/components/Button'
+// import useModality from '@/hooks/useModality'
 
 type Post = {
-  id: number
+  id: string
   title: string
   subtitle: string
   mainImage: string
@@ -23,81 +23,115 @@ export const getServerSideProps: GetServerSideProps<any | QueryParams> = async (
     const modality = query?.modalidade === 'distancia' ? 'distance' : 'presential'
     const response = await fetch(`http://public.essencialavida.com/data/${modality}_posts.json`)
     const posts: Post[] = await response.json()
-    return { props: { posts } }
+    return { props: { posts, modality } }
   } catch {
     res.statusCode = 404
     return { props: { posts: [] } }
   }
 }
 
-const updatePersonalDataLink =
-  //'https://forms.office.com/Pages/ResponsePage.aspx?id=dnsOpaWOLEm_F5fWUvw86aDgUwsoAJ1NljZS7R7VIdNUMlFCWlBGWEk2WVYwTU0wRktMNUpYSzNSTy4u'
-  'https://docs.google.com/spreadsheets/d/1vf5BaxEM_VQ2WEsShacYw9xL_vwuO10vw2bWBbDLpMU/edit?usp=sharing'
-const Index: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ posts }) => {
+// const updatePersonalDataLink =
+//   //'https://forms.office.com/Pages/ResponsePage.aspx?id=dnsOpaWOLEm_F5fWUvw86aDgUwsoAJ1NljZS7R7VIdNUMlFCWlBGWEk2WVYwTU0wRktMNUpYSzNSTy4u'
+//   'https://docs.google.com/spreadsheets/d/1vf5BaxEM_VQ2WEsShacYw9xL_vwuO10vw2bWBbDLpMU/edit?usp=sharing'
+const Index: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
+  posts,
+  modality
+}) => {
   const router = useRouter()
-  const { modality } = useModality()
-
+  // const { modality } = useModality()
+  const modal = modality
   return (
-    <Layout title={modality} footerDisabled>
+    <Layout title={modal} footerDisabled>
       <div className={Styles.heroLanding}>
         <div className={Styles.container}>
-          <div className={Styles.heroCard}>
-            <h1>Fique Atento</h1>
-            <h2>Avaliação Proficiência</h2>
-            <p>
-              <strong>A partir do dia 17/05 até o dia 21/05.</strong>
-              <br />
-              <br />
-              <strong>Confira a listagem dos alunos elegíveis a realizar a avaliação de proficiência.</strong>
-            </p>
-            <Button variant="contained" onClick={() => window.open(updatePersonalDataLink)}>
-              Alunos Elegíveis
-            </Button>
-          </div>
+          {posts.map(
+            (post: Post): JSX.Element =>
+              post.id === modal ? (
+                <div
+                  className={Styles.card}
+                  key={modal}
+                  data-title={post.title}
+                  onClick={async (): Promise<void> => {
+                    if (!post.link) {
+                      return
+                    }
+                    if (post.link === 'id') {
+                      await router.push(`/informacao/${'presential'}`)
+                      return
+                    }
+                    if (post.link.substr(0, 1) === '/') {
+                      await router.push(post.link)
+                      return
+                    }
+                    window.open(post.link)
+                  }}
+                >
+                  <div
+                    className={Styles.imageWrapper}
+                    style={{
+                      backgroundImage: `url(http://public.essencialavida.com/images/${post.mainImage})`
+                    }}
+                  />
+                  <main>
+                    <p className={Styles.truncateOverflow} title={post.title}>
+                      <strong>{post.title}</strong>
+                    </p>
+                    <br />
+                    <p className={Styles.truncateOverflow} title={post.subtitle}>
+                      {post.subtitle}
+                    </p>
+                  </main>
+                </div>
+              ) : (
+                <></>
+              )
+          )}
         </div>
         <div className={Styles.mobileHeroBanner} />
         <HomeHeroLandingImage />
       </div>
       <div className={Styles.container}>
         {posts.map(
-          (post: Post): JSX.Element => (
-            // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
-            <div
-              className={Styles.card}
-              key={post.id}
-              data-title={post.title}
-              onClick={async (): Promise<void> => {
-                if (!post.link) {
-                  return
-                }
-                if (post.link === 'id') {
-                  await router.push(`/informacao/${post.id}`)
-                  return
-                }
-                if (post.link.substr(0, 1) === '/') {
-                  await router.push(post.link)
-                  return
-                }
-                window.open(post.link)
-              }}
-            >
+          (post: Post): JSX.Element =>
+            post.id === modal ? (
+              <></>
+            ) : (
               <div
-                className={Styles.imageWrapper}
-                style={{
-                  backgroundImage: `url(http://public.essencialavida.com/images/${post.mainImage})`
+                className={Styles.card}
+                key={post.id}
+                data-title={post.title}
+                onClick={async (): Promise<void> => {
+                  if (!post.link) {
+                    return
+                  }
+                  if (post.link === 'id') {
+                    await router.push(`/informacao/${post.id}`)
+                    return
+                  }
+                  if (post.link.substr(0, 1) === '/') {
+                    await router.push(post.link)
+                    return
+                  }
+                  window.open(post.link)
                 }}
-              />
-              <main>
-                <p className={Styles.truncateOverflow} title={post.title}>
-                  <strong>{post.title}</strong>
-                </p>
-                <br />
-                <p className={Styles.truncateOverflow} title={post.subtitle}>
-                  {post.subtitle}
-                </p>
-              </main>
-            </div>
-          )
+              >
+                <div
+                  className={Styles.imageWrapper}
+                  style={{
+                    backgroundImage: `url(http://public.essencialavida.com/images/${post.mainImage})`
+                  }}
+                />
+                <main>
+                  <p className={Styles.truncateOverflow} title={post.title}>
+                    <strong>{post.title}</strong>
+                  </p>
+                  <br />
+                  <p className={Styles.truncateOverflow} title={post.subtitle}>
+                    {post.subtitle}
+                  </p>
+                </main>
+              </div>
+            )
         )}
       </div>
     </Layout>
