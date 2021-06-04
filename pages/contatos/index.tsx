@@ -70,8 +70,8 @@ const Contatos: NextPage = () => {
             photo="patricia.jpg"
             contactTitle="Odontologia"
             subtitle="Patricia Capellato"
-            contact={['patricia.capellato@anhanguera.com', 'WhatsApp: (12) 98156-3426']}
-            contactLink={['', 'https://wa.me/5512981563426']}
+            contact={['patricia.capellato@anhanguera.com', 'WhatsApp: (12) 3411-0546']}
+            contactLink={['', 'https://wa.me/551234110546']}
           />
           <Contact
             photo="vitor.jpg"
@@ -237,8 +237,8 @@ const Contatos: NextPage = () => {
         />
         <Contact
           contactTitle="Biblioteca"
-          subtitle="WhatsApp: (12) 3634-4166"
-          subtitleLink="https://wa.me/551236344166"
+          subtitle="WhatsApp: (12) 3634-4168"
+          subtitleLink="https://wa.me/551236344168"
           contact={[]}
         />
       </div>
